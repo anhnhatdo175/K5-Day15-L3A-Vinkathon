@@ -152,9 +152,21 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 - So với impact / người / tháng (§2): ~21 phút học viên / người / tháng so với $0.0076 / người / tháng tiền model → đáng làm về chi phí model; chi phí thật nằm ở giờ công key coach duyệt bản nháp và giữ bảng cập nhật (chưa tính), và impact còn dựa trên khảo sát 13 phiếu.
 
 ## §9. Rủi ro & an toàn
-- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
-- AI **không được** làm gì kể cả khi người dùng yêu cầu:
-- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
+- **Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model:**
+  - Khảo sát: bản gốc có 1 số điện thoại ở cột D1, để ngoài repo (`data-btc/`, `.gitignore`); repo chỉ có `evidence/survey/results.csv` đã bỏ dấu thời gian và cột liên hệ. Phỏng vấn: chỉ ghi vai (P1–P5) và TV1–TV4, không tên, không liên lạc.
+  - Data BTC: nguyên file xlsx không commit; `data/build_data.py` bỏ tên giảng viên / lab coach, email, link, chỉ giữ lớp · buổi · ngày · phòng · trạng thái · giờ. Danh sách nhóm `data/nhom.csv` là tên mẫu tự ghép, không phải người thật.
+  - Đưa vào model (OpenAI API, gpt-5.4-nano; gói: __ *(nhóm điền)*): câu người dùng gõ + dữ kiện của đúng buổi được hỏi (buổi, giờ, trạng thái, phòng của nhóm). **Không** gửi danh sách nhóm, tên học viên khác, bảng lab coach. `find_group` chỉ trả số nhóm, không trả tên. Tên người dùng tự gõ (B07) có đi qua model ở bước trích ý — ngoài đời nên tra tên bằng code trước, không gửi lên model.
+  - Trợ lý không lưu lịch sử hỏi; trace chỉ có ở lượt eval / simulate trong repo (câu thử, không phải người thật).
+- **AI không được làm, kể cả khi người dùng yêu cầu** (chặn bằng code, không chỉ dựa vào prompt):
+  - Đổi, chốt, cho chuyển phòng; gửi hay soạn tin cho học viên / cả lớp / nhóm chat → nhánh từ chối `refuse()` dùng câu do code soạn, không có công cụ gửi nào; `draft_notice` chỉ tạo nháp `cho_duyet` gửi key coach (B13, B26).
+  - Làm theo tin được dán vào hay người tự nhận là key coach / BTC, câu "bỏ qua mọi hướng dẫn" → luôn chuyển sang từ chối bằng code (`ATTACK`), vẫn báo đúng trạng thái trong bảng (B14, B20).
+  - Lộ tên, email, số điện thoại người khác → từ chối bằng code (`PERSONAL`), dữ liệu không có trong công cụ (B15).
+  - Nêu mã phòng không có trong bảng, hoặc nói phòng "chờ xác nhận" như đã chốt → bước chặn ⑦⑧ (`guard()`): mã phòng, giờ trong câu của model phải đúng kết quả công cụ; phòng dự kiến phải nằm trong câu có "dự kiến"; cấm "cứ đến", "đã gửi", "đã cập nhật"; trượt thì bỏ câu của model, dùng câu do code soạn.
+- **Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:**
+  - **Học viên** (hại lớn nhất): đi nhầm phòng hoặc bỏ buổi. Lượt 1 và 2 có câu B08 trợ lý nói "không có buổi lab" khi có 2 buổi chờ xác nhận. Đã chặn ở lượt 3: ngày "mai" và lớp / nhóm do code đọc, model không ghi đè. Còn lại: model trả lời mỗi lượt một khác, nên vẫn có thể sai ở câu chưa có trong bộ câu thử → mọi câu trả lời kèm "theo bảng cập nhật lúc …" để học viên biết thông tin mới tới đâu.
+  - **Key coach:** nhận nháp `draft_notice` sai hoặc quá nhiều (mỗi câu hỏi về buổi chưa chốt sinh một nháp). Chặn: nháp không tự gửi, key coach duyệt. Chưa làm: gộp các nháp trùng buổi.
+  - **Học viên khác:** lộ thông tin cá nhân → trợ lý không có công cụ nào đọc tên / email / SĐT ra ngoài.
+  - Giới hạn bản chạy thử: data giả lập, nhóm → phòng tự dựng, mốc "hôm nay" cố định (02/05/2027). Đưa vào dùng thật thì phải thay bằng bảng phân công thật, danh sách nhóm chính thức và giờ thật.
 
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp, guide "Cách chia việc"): mỗi người **giữ một mảng** và phải giải thích được phần có tên mình; **cặp đổi sau CP2** để ai cũng kể lại được cả câu chuyện; ai cũng tự chạy `run.py eval` và `run.py simulate` ít nhất một lần.
