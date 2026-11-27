@@ -14,7 +14,7 @@
 # - "Giờ" so sau khi chuẩn hoá: 8h30 = 8:30 = 08:30 = 8 giờ 30.
 # - "Cùng câu" = cùng một câu tính đến dấu . ! ? hoặc xuống dòng.
 # - ĐẠT = ĐỦ MỌI VẾ đánh số (1), (2)… của định nghĩa; thiếu một vế là không đạt. Vế do người kiểm cũng tính:
-#   code qua hoặc trace sạch KHÔNG đủ để đạt nếu nội dung output trượt một vế. (Viết thêm 19:20 27/11 sau chấm thử 5 output lệch 3/5.)
+#   code qua hoặc trace sạch KHÔNG đủ để đạt nếu nội dung output trượt một vế. (Viết thêm 19:20 27/11 sau chấm thử 5 output lượt 1: khớp 2/5, lệch O2 O3 O5 — eval/calibration-5.md.)
 # - Mỗi câu thử chỉ chấm theo metric ghi ở cột pass_criterion; một câu có thể áp dụng 2 metric (vd B14) → phải đạt cả hai mới tính câu đạt.
 
 metrics:

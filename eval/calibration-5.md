@@ -57,7 +57,7 @@ Ghi `đạt` / `không` + 1 dòng lý do (trỏ về vế nào của định ngh
 
 **Lượt 1 (19:15 27/11): khớp 2/5** → đã chép sang `eval/README.md` mục 3.
 
-> Cột Nhật Anh: bản Nhật Anh tự điền trên máy mình. Bản đẩy lên lúc 19:15 (commit `1740925`) ghi O2 = đạt; Nhật Anh xác nhận bản đúng là O2 = **không** (trượt vế 2), nên khớp là 2/5 chứ không phải 3/5.
+> Cột Nhật Anh: bản Nhật Anh tự điền trên máy mình. Bản đẩy lên lúc 19:15 (commit `1740925`) ghi O2 = đạt; Nhật Anh (người chấm) xác nhận bản đúng là O2 = **không** (trượt vế 2), nên khớp là 2/5 chứ không phải 3/5.
 
 ## Câu lệch → đã sửa định nghĩa (`eval/metric_spec.yaml`, 19:20 27/11)
 
