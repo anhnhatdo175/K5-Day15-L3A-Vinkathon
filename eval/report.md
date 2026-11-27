@@ -11,8 +11,9 @@
 | 1 | run-1@20261128-022021 | 24/26 *(Claude Code chấm theo vế metric, `eval/cham-run-1-de-xuat.csv`; B19, B23 chờ nhóm xem lại)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (cần 100%) · `phong_dung_bang` 9/10 = 90% (đạt, sát ngưỡng) · `hoi_lai_khi_thieu` 3/3 · `tu_choi_dung` 6/6 |
 | 2 | run-2@20261128-022855 | 24/26 *(Claude Code chấm cùng cách lượt 1, `eval/cham-run-2-de-xuat.csv`)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (B08) · `hoi_lai_khi_thieu` 2/3 = 67% (B05, cần ≥80%) · `phong_dung_bang` 10/10 · `tu_choi_dung` 6/6 |
 | 3 *(thêm, sau lượt 2)* | run-3@20261128-023240 | 26/26 *(cùng cách chấm, `eval/cham-run-3-de-xuat.csv`)* | 100% | 7/7 | 13/13 | 6/6 | **đạt**: `phong_dung_bang` 10/10 · `khong_noi_chot_khi_chua_chot` 8/8 · `hoi_lai_khi_thieu` 3/3 · `tu_choi_dung` 6/6 |
+| 4 *(kiểm độ ổn định, không sửa code)* | run-4@20261128-031257 | 26/26 *(cùng cách chấm, `eval/cham-run-4-de-xuat.csv`)* | 100% | 7/7 | 13/13 | 6/6 | **đạt** (4/4 ngưỡng) · 17/26 output giống hệt lượt 3, 9 câu chỉ khác câu chữ |
 
-Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`, `eval/run-3.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`, `traces/run-3.jsonl`.
+Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`, `eval/run-3.csv`, `eval/run-4.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`, `traces/run-3.jsonl`, `traces/run-4.jsonl`.
 
 ## 2. Lỗi lượt 1 — gom thành nhóm có tên
 
@@ -40,6 +41,7 @@ Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`, `eval/run-3.csv`. T
 ## 4. Còn lại
 
 - **Lượt 3 (thêm, cùng bộ câu thử, cùng cách chấm, không sửa lượt 1–2):** sửa tiếp cùng nhóm lỗi "model trích ý sai" theo một nguyên tắc: thông tin code đọc chắc được thì không để model đoán. (1) lớp / nhóm của model chỉ nhận khi có trong chữ người dùng gõ; (2) ngày tương đối ("mai", "hôm nay") do code tính, ưu tiên hơn ngày model suy. Kết quả: B05, B08 đạt → **26/26 (100%), đạt chuẩn §7**; không câu nào tệ đi (output các câu khác chỉ khác cách diễn đạt).
-- Lỗi chưa sửa + nguy hiểm thế nào: model vẫn đọc ý định và các ngày dạng "thứ Năm" — model trả lời mỗi lượt một khác (lượt 1 đúng B05, lượt 2 sai), nên 26/26 ở một lượt chưa chứng minh ổn định. Bộ câu thử chỉ có 26 câu, nhiều câu nhóm tự viết; các cách sửa ở lượt 2–3 nhắm đúng lỗi thấy trong bộ này nên có nguy cơ khớp bộ câu thử hơn là khớp cách học viên thật gõ.
+- **Lượt 4 (kiểm độ ổn định, không sửa code, cùng bộ câu thử, cùng cách chấm):** 26/26 (100%), đạt 4 ngưỡng; 17/26 output giống hệt lượt 3, 9 câu chỉ khác câu chữ, vẫn đủ mọi vế metric.
+- Lỗi chưa sửa + nguy hiểm thế nào: model vẫn đọc ý định và các ngày dạng "thứ Năm"; model trả lời mỗi lượt một khác (lượt 1 đúng B05, lượt 2 sai). 2 lượt liên tiếp 26/26 (lượt 3, 4) cho thấy ổn định hơn nhưng vẫn là mẫu nhỏ. Bộ câu thử chỉ có 26 câu, nhiều câu nhóm tự viết; các cách sửa ở lượt 2–3 nhắm đúng lỗi thấy trong bộ này nên có nguy cơ khớp bộ câu thử hơn là khớp cách học viên thật gõ.
 - Dữ liệu: bảng lịch là bộ giả lập BTC, danh sách nhóm tự dựng; chưa thử với bảng thật.
 - Nếu có thêm 1 tuần: thay danh sách nhóm tự dựng bằng danh sách chính thức; chạy thêm câu thử theo đúng cách học viên gõ (lấy từ khảo sát / Discord); cho key coach thử duyệt bản nháp `draft_notice`.

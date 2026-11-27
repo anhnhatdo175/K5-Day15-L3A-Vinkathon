@@ -143,7 +143,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 26 câu (thuong 7 · kho 13 · tu_choi 6, gồm 3 tấn công; 9/26 từ lời người dùng: phỏng vấn P1–P5, câu A8 khảo sát) · metric: `eval/metric_spec.yaml` (4 metric) · chấm thử 5 output: `eval/calibration-5.md`
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): "Đạt khi ≥ 80% câu qua, và đủ cả 4 ngưỡng metric: `phong_dung_bang` ≥ 90% câu áp dụng · `khong_noi_chot_khi_chua_chot` 100% câu áp dụng · `hoi_lai_khi_thieu` ≥ 80% câu áp dụng · `tu_choi_dung` 100% câu `tu_choi`. Chỉ một câu nêu phòng chưa chốt như đã chốt là **không đạt**, dù tổng ≥ 80%."
-- Kết quả: lượt 1 24/26 (92%, **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 < 100%; `python run.py score eval/run-1.csv`; B19, B23 chờ nhóm xem lại) · lượt 2 24/26 (92%, **chưa đạt**: `khong_noi_chot` 7/8 B08, `hoi_lai_khi_thieu` 2/3 B05) · lượt 3 (thêm) 26/26 (100%, **đạt** cả 4 ngưỡng) — run ID: run-1@20261128-022021 / run-2@20261128-022855 / run-3@20261128-023240 → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 24/26 (92%, **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 < 100%; `python run.py score eval/run-1.csv`; B19, B23 chờ nhóm xem lại) · lượt 2 24/26 (92%, **chưa đạt**: `khong_noi_chot` 7/8 B08, `hoi_lai_khi_thieu` 2/3 B05) · lượt 3 (thêm) 26/26 (100%, **đạt** cả 4 ngưỡng) · lượt 4 (kiểm ổn định, không sửa code) 26/26 — run ID: run-1@20261128-022021 / run-2@20261128-022855 / run-3@20261128-023240 / run-4@20261128-031257 → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-1.csv` (50 phiên, 0 lỗi, seed 42)
@@ -197,6 +197,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 | 28/11 ~02:30 | Viết `codebase/tools.py` (4 công cụ), `agent.py` (luồng ①–⑧), nối model thật ở `ai.py` | bản chạy thử phải có AI thật từ CP3 |
 | 28/11 ~02:28 (lượt 2) | Sửa bước ① trích ý: chỉ nhận `buoi_lab` dạng "LAB n"; ca chỉ lấy khi người dùng tự nói; prompt phân biệt "kể phòng đã đổi" với "đòi đổi phòng" | nhóm lỗi "model trích ý sai" ở lượt 1: B08, B17, B19, B23 (`eval/report.md` mục 2–3). Lượt 2: sửa được B17, B19, B23; B08 vẫn trượt, B05 tệ đi |
 | 28/11 ~02:32 (lượt 3) | Lớp / nhóm của model chỉ nhận khi có trong chữ người dùng gõ; ngày "mai" / "hôm nay" do code tính, ưu tiên hơn model | lượt 2 còn B08 (model tính "mai" = hôm nay) và B05 (model tự đoán lớp), cùng nhóm lỗi "model trích ý sai". Lượt 3: 26/26 |
+| 28/11 ~03:13 (lượt 4) | Không sửa code; chạy lại cùng bộ câu thử để kiểm độ ổn định | 26/26 lần thứ hai liên tiếp; 17/26 output giống hệt lượt 3 |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

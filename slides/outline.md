@@ -68,7 +68,7 @@ Ai nói trang nào (mỗi người ≥1 phần, theo kế hoạch spec §10 ch�
 - 26 câu thử (thuong 7 · kho 13 · tu_choi 6, 3 câu tấn công), **9/26 từ lời người dùng** · 4 metric, chuẩn "đạt" chốt trước CP2
 - Bảng: lượt 1 24/26 chưa đạt (`khong_noi_chot` 7/8) → lượt 2 24/26 chưa đạt (sửa 3 câu, 1 câu tệ đi) → lượt 3 **26/26 đạt** (run-3@20261128-023240)
 - Lỗi chính: **model đoán thông tin mà code đọc chắc được** (ngày "mai", lớp, ca) → sửa: code ưu tiên hơn model
-- Thật thà: chấm thử 2 người lượt 1 chỉ khớp 2/5 → đã viết lại định nghĩa; 26/26 ở một lượt chưa chứng minh ổn định
+- Thật thà: chấm thử 2 người lượt 1 chỉ khớp 2/5 → đã viết lại định nghĩa; lượt 4 chạy lại không sửa code vẫn 26/26 (2 lượt liên tiếp, mẫu nhỏ)
 - Nguồn: `eval/report.md`, `eval/README.md`, `eval/calibration-5.md`
 
 ### 6 · Chi phí khi dùng thật
