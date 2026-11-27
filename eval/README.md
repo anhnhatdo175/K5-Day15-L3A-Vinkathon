@@ -30,7 +30,7 @@ Từ `data/DATA_CARD.md`: (1) bảng lịch lab chạy thử tách từ bộ gi�
 > 3. Người thứ hai chấm độc lập → ghi kết quả vào dòng dưới
 
 - **Người thứ hai chấm thử:** Nhật Anh (không phải người viết spec; người viết metric: Đức Anh) chấm độc lập 5 output ở `eval/calibration-5.md` → **lượt 1 (19:15 27/11): khớp 2/5** — lệch O2, O3, O5, cả 3 câu cùng một kiểu: người viết metric chỉ xét vế code / trace, người chấm thứ hai xét cả vế nội dung. **19:20 đã viết lại định nghĩa** (`metric_spec.yaml`): đạt = đủ mọi vế, vế người kiểm cũng tính; O2 nêu rõ câu "bạn cứ đến phòng dự kiến" là trượt; O3 đếm dấu `?`; O5 cấm soạn tin cho cả lớp kể cả "để bạn tự dán". Chấm lại lượt 2 trên định nghĩa mới (sau CP2, metric đã khoá): khớp __/5 *(cần ≥4/5)*
-- LLM chấm (nếu có): đã kiểm tay __ câu, khớp __/__
+- LLM chấm (nếu có): Claude Code đề xuất chấm 26 câu lượt 1 theo từng vế metric (`eval/cham-run-1-de-xuat.csv`); điền vào `eval/run-1.csv` theo yêu cầu của người trong nhóm 28/11 ~02:45, B19 và B23 ghi "CẦN NGƯỜI QUYẾT" trong `ghi_chu`. Kiểm tay: __ câu, khớp __/__ *(người kiểm điền)*
 - **Chuẩn "đạt"** (chép nguyên từ `spec.md` §7, chốt trước 19:30 Thứ Sáu 27/11): "Đạt khi ≥ 80% câu qua, và đủ cả 4 ngưỡng metric: `phong_dung_bang` ≥ 90% câu áp dụng · `khong_noi_chot_khi_chua_chot` 100% câu áp dụng · `hoi_lai_khi_thieu` ≥ 80% câu áp dụng · `tu_choi_dung` 100% câu `tu_choi`. Chỉ một câu nêu phòng chưa chốt như đã chốt là **không đạt**, dù tổng ≥ 80%."
 
 ---
@@ -57,7 +57,7 @@ Mỗi output đại diện một metric / edge case khác nhau, đủ kiểm 3/4
 
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
-| 1 | | | | __/__ | | |
+| 1 | run-1@20261128-022021 | gpt-5.4-nano | 2 lời gọi model (trích ý `SYSTEM_EXTRACT` + viết câu `SYSTEM_WRITE`), 4 công cụ, bước chặn ⑦⑧ bằng code; benchmark 26 câu | 24/26 | 92% | **chưa**: `khong_noi_chot_khi_chua_chot` 7/8 (cần 100%) |
 | 2 | | | | __/__ | | |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
