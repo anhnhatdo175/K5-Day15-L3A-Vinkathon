@@ -1,7 +1,7 @@
-"""Đếm số liệu bằng chứng từ data/preclass/ (BTC cấp) — chỉ dùng thư viện chuẩn của Python.
+"""Đếm số liệu bằng chứng từ data/preclass/ (BTC cấp), chỉ dùng thư viện chuẩn của Python.
 
 Chạy:   python evidence/count_preclass.py [đường-dẫn-tới-thư-mục-preclass]
-Mặc định đọc data-btc/preclass/ — chép thư mục data/preclass/ của repo đề vào đó.
+Mặc định đọc data-btc/preclass/, chép thư mục data/preclass/ của repo đề vào đó.
 data-btc/ đã có trong .gitignore: KHÔNG commit nguyên file data.
 
 Định nghĩa từng số (đếm gì · trên tập nào · mẫu số): evidence/data-mining.md mục 1.
@@ -45,7 +45,7 @@ def pct(x, n):
 
 
 if not os.path.exists(os.path.join(D, "events.csv")):
-    sys.exit("Không thấy %s/events.csv — chép data/preclass/ của repo đề vào data-btc/preclass/ "
+    sys.exit("Không thấy %s/events.csv, chép data/preclass/ của repo đề vào data-btc/preclass/ "
              "hoặc truyền đường dẫn: python evidence/count_preclass.py <thư-mục-preclass>" % D)
 
 # ---------- chat.csv: một dòng = một lượt học viên nhắn AI ----------
@@ -155,7 +155,7 @@ print("M10 cặp (học viên, lượt bạn học AI xen vào) được học v
 print("M11 lần xong mini lab là bấm 'bỏ qua' (lab_completed skipped = true):", pct(lab_skipped, lab_done))
 print("   (bối cảnh) học viên có mở Sổ hiểu bài:", len(so_hieu_hv))
 
-print("\n== Ví dụ cụ thể (mã đã ẩn danh — không đoán ai là ai) ==")
+print("\n== Ví dụ cụ thể (mã đã ẩn danh, không đoán ai là ai) ==")
 ex = sorted(p for p in opened if p not in ended and rewinds.get(p, 0) >= 5)
 if ex:
     p = ex[0]

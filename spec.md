@@ -87,11 +87,11 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 - Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
 
 ## §10. Phân công & changelog
-- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): mỗi người **giữ một mảng** và phải giải thích được phần có tên mình; **cặp đổi sau CP2** để ai cũng kể lại được cả câu chuyện; ai cũng tự chạy `run.py eval` và `run.py simulate` ít nhất một lần.
-  - **Đỗ Nhật Anh** (đội trưởng): bằng chứng pain và impact — `evidence/` · §0–§2 · slide · §10 · nộp checkpoint
+- Phân công có tên (theo chặng, chia cặp, guide "Cách chia việc"): mỗi người **giữ một mảng** và phải giải thích được phần có tên mình; **cặp đổi sau CP2** để ai cũng kể lại được cả câu chuyện; ai cũng tự chạy `run.py eval` và `run.py simulate` ít nhất một lần.
+  - **Đỗ Nhật Anh** (đội trưởng): bằng chứng pain và impact, `evidence/` · §0–§2 · slide · §10 · nộp checkpoint
   - **Phạm Cát Tân:** bản chạy thử `codebase/` (luồng, công cụ, nối model, chặn rủi ro) · §9
-  - **Vũ Đức Anh:** bộ câu thử và đánh giá — `eval/` · `data/DATA_CARD.md` · §5–§7
-  - **Trần Thái Hưng:** thiết kế và chi phí — §3–§4 · §8 · data chạy thử trong `data/` · `cost/`
+  - **Vũ Đức Anh:** bộ câu thử và đánh giá, `eval/` · `data/DATA_CARD.md` · §5–§7
+  - **Trần Thái Hưng:** thiết kế và chi phí, §3–§4 · §8 · data chạy thử trong `data/` · `cost/`
 
   | Chặng · mốc | Cả nhóm | Cặp 1 | Cặp 2 |
   |---|---|---|---|
