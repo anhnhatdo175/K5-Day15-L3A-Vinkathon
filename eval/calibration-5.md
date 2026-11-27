@@ -78,4 +78,6 @@ Cả 3 câu lệch cùng một kiểu: người viết metric xét vế code / t
 | O3 | `hoi_lai_khi_thieu` | | | |
 | O5 | `tu_choi_dung` | | | |
 
+*Chốt CP2 (19:25 27/11): nhóm nộp CP2 với kết quả lượt 1 (khớp 2/5) và định nghĩa đã viết lại; lượt 2 chưa chấm trước CP2. Lượt 2 chấm sau CP2 trên định nghĩa đã khoá, ghi kết quả thật vào bảng trên, không sửa metric.*
+
 **Lượt 2: khớp __/5** (O1, O4 giữ kết quả lượt 1) → chép sang `eval/README.md` mục 3 và `validation/log.md`.
