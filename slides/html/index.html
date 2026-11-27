@@ -86,7 +86,7 @@
     <div class="kpi"><div class="big">3/3</div><p>học viên phỏng vấn mất <b>8–15 phút</b> đầu buổi lab trong 1 tháng qua vì thông tin phòng / nhóm</p></div>
     <div class="kpi"><div class="big">8/13</div><p>học viên khảo sát gặp thông tin phòng <b>không khớp</b> trong 1 tháng (n = 13, chưa đạt 20)</p></div>
     <div class="kpi"><div class="big">26/26</div><p>câu thử đạt ở lượt 3, <b>đạt chuẩn</b> chốt trước CP2 (lượt 1, 2: 24/26, chưa đạt)</p></div>
-    <div class="kpi"><div class="big">$5.35</div><p>tiền model / tháng cho <b>700 học viên</b> (50 phiên mô phỏng, gpt-5.4-nano)</p></div>
+    <div class="kpi"><div class="big">$5.37</div><p>tiền model / tháng cho <b>700 học viên</b> (50 phiên mô phỏng, gpt-5.4-nano)</p></div>
   </div>
   <div class="grid c4 mt-m" style="gap:18px">
     <div class="card card-soft"><div class="lbl">Đã chốt → nêu phòng</div><p>"Theo bảng cập nhật lúc 21:00 27/04, nhóm 3 học <b>E303</b>, 09:00" — luôn kèm độ mới của bảng</p></div>
@@ -100,7 +100,7 @@
     <div><b>Vũ Đức Anh</b> · bộ câu thử + đánh giá</div>
     <div><b>Trần Thái Hưng</b> · thiết kế + chi phí</div>
   </div>
-  <div class="notes">Mở đầu bằng câu hỏi học viên hay gõ tối trước buổi lab: "mai lab phòng nào?". Bốn con số ở dưới là cả câu chuyện: pain có thật (3/3, 8/13), làm được và đo được (26/26 ở lượt 3), và rất rẻ ($5.35/tháng). Nói luôn giới hạn: khảo sát mới 13 phiếu.</div>
+  <div class="notes">Mở đầu bằng câu hỏi học viên hay gõ tối trước buổi lab: "mai lab phòng nào?". Bốn con số ở dưới là cả câu chuyện: pain có thật (3/3, 8/13), làm được và đo được (26/26 ở lượt 3), và rất rẻ ($5.37/tháng). Nói luôn giới hạn: khảo sát mới 13 phiếu.</div>
 </section>
 
 <!-- ============ 1 · NGƯỜI DÙNG & PAIN ============ -->
@@ -314,40 +314,40 @@
 <!-- ============ 6 · CHI PHÍ ============ -->
 <section class="slide" data-title="Chi phí">
   <div class="s-head">
-    <div><p class="kicker">6 · Chi phí khi dùng thật</p><h2 class="h2">Tiền model ≈ $0.0076 / học viên / tháng</h2></div>
-    <p class="take">50 phiên mô phỏng theo 3 kiểu người dùng từ khảo sát A2; token đo thật trên gpt-5.4-nano (vào $0.20 · ra $1.25 / 1M token, xem 28/11/2026).</p>
+    <div><p class="kicker">6 · Chi phí khi dùng thật</p><h2 class="h2">Tiền model ≈ $0.0077 / học viên / tháng</h2></div>
+    <p class="take">50 phiên mô phỏng theo 3 kiểu người dùng từ khảo sát A2; token đo thật trên gpt-5.4-nano qua OpenRouter, tỉ lệ đạt lượt 2 (vào $0.20 · ra $1.25 / 1M token, xem 28/11/2026).</p>
   </div>
   <div class="kpis">
     <div class="kpi"><div class="big">$0.00062</div><p>chi phí / phiên · 0/50 phiên lỗi · seed 42</p></div>
-    <div class="kpi"><div class="big">$0.00067</div><p>chi phí / task thành công nếu tính theo tỉ lệ đạt lượt 2 (92%); lượt 3: $0.00062</p></div>
-    <div class="kpi"><div class="big">$5.35</div><p>/ tháng cho 700 học viên (cơ sở) · thấp $3.29 · cao $7.64</p></div>
-    <div class="kpi"><div class="big">~21′</div><p>impact / học viên / tháng (250 giờ ÷ 700) — so với $0.0076 tiền model</p></div>
+    <div class="kpi"><div class="big">$0.00067</div><p>chi phí / task thành công, tỉ lệ đạt lượt 2 (24/26 = 92%)</p></div>
+    <div class="kpi"><div class="big">$5.37</div><p>/ tháng cho 700 học viên (cơ sở) · thấp $3.30 · cao $7.68</p></div>
+    <div class="kpi"><div class="big">~21′</div><p>impact / học viên / tháng (250 giờ ÷ 700) — so với $0.0077 tiền model</p></div>
   </div>
   <div class="body c55" style="margin-top:20px">
     <div class="card">
       <h4>Persona (khảo sát A2, n = 13) và token đo được</h4>
       <table class="tbl">
         <tr><th>Persona</th><th>Tỉ lệ</th><th>Phiên / tháng</th><th>Lượt / phiên</th><th>Token vào / ra</th></tr>
-        <tr><td><b>dùng ít</b> (0 lần / tuần)</td><td>0,31</td><td>1 <span class="dim2">(tự ước tính)</span></td><td>1</td><td>1072 / 139</td></tr>
-        <tr><td><b>dùng vừa</b> (2–3 lần / tuần)</td><td>0,38</td><td>10</td><td>2</td><td>2149 / 243</td></tr>
-        <tr><td><b>dùng nhiều</b> (4–6 lần / tuần)</td><td>0,31</td><td>20</td><td>2</td><td>2198 / 259</td></tr>
+        <tr><td><b>dùng ít</b> (0 lần / tuần)</td><td>0,31</td><td>1 <span class="dim2">(tự ước tính)</span></td><td>1</td><td>1072 / 136</td></tr>
+        <tr><td><b>dùng vừa</b> (2–3 lần / tuần)</td><td>0,38</td><td>10</td><td>2</td><td>2158 / 252</td></tr>
+        <tr><td><b>dùng nhiều</b> (4–6 lần / tuần)</td><td>0,31</td><td>20</td><td>2</td><td>2208 / 256</td></tr>
       </table>
       <p class="src">Số lượt / phiên: tự ước tính (1 lượt hỏi lại khi thiếu lớp / nhóm) · mỗi lượt hỏi gọi model 1–2 lần (trích ý + viết câu; hỏi lại và từ chối không gọi bước viết)</p>
       <h4 class="mt-m">3 kịch bản quy mô · gpt-5.4-nano</h4>
       <table class="tbl">
         <tr><th>Kịch bản</th><th>Số học viên</th><th>Nguồn số người</th><th>Chi phí / tháng</th></tr>
-        <tr><td><b>Thấp</b></td><td>430</td><td>700 × 8/13 gặp sự cố (khảo sát A7)</td><td><b>$3.29</b></td></tr>
-        <tr class="hl"><td><b>Cơ sở</b></td><td>700</td><td>lớp L3 (file track A, mục A5)</td><td><b>$5.35</b></td></tr>
-        <tr><td><b>Cao</b></td><td>1.000</td><td>tự ước tính (nếu mở cho cả L2)</td><td><b>$7.64</b></td></tr>
+        <tr><td><b>Thấp</b></td><td>430</td><td>700 × 8/13 gặp sự cố (khảo sát A7)</td><td><b>$3.30</b></td></tr>
+        <tr class="hl"><td><b>Cơ sở</b></td><td>700</td><td>lớp L3 (file track A, mục A5)</td><td><b>$5.37</b></td></tr>
+        <tr><td><b>Cao</b></td><td>1.000</td><td>tự ước tính (nếu mở cho cả L2)</td><td><b>$7.68</b></td></tr>
       </table>
     </div>
     <div class="grid" style="gap:16px">
-      <div class="card card-accent"><h4>So với impact</h4><ul><li>Impact cơ sở ≈ 250 giờ / tháng ÷ 700 ≈ <b>21 phút / học viên / tháng</b>; người gặp sự cố: 2,9 lần × 12′ ≈ 35 phút</li><li>Tiền model: <b>$0.0076 / học viên / tháng</b></li><li>→ Về tiền model, bài toán đáng làm ở mọi kịch bản</li></ul></div>
+      <div class="card card-accent"><h4>So với impact</h4><ul><li>Impact cơ sở ≈ 250 giờ / tháng ÷ 700 ≈ <b>21 phút / học viên / tháng</b>; người gặp sự cố: 2,9 lần × 12′ ≈ 35 phút</li><li>Tiền model: <b>$0.0077 / học viên / tháng</b></li><li>→ Về tiền model, bài toán đáng làm ở mọi kịch bản</li></ul></div>
       <div class="card card-soft"><h4>Chi phí thật không nằm ở model <span class="dim2" style="font-weight:400">(chưa tính)</span></h4><ul><li>Giờ công key coach duyệt bản nháp <code>draft_notice</code> (mỗi câu hỏi buổi chưa chốt → 1 nháp; chưa gộp nháp trùng buổi)</li><li>Giữ bảng phân công chính thức luôn mới — trợ lý chỉ đúng bằng bảng</li><li>Hosting: nhỏ ở quy mô 700 người</li></ul></div>
       <div class="card card-outline"><h4>Còn thiếu</h4><ul><li>Giá <b>model thứ hai</b> có nguồn: __ (tính lại được từ token đã đo, không cần chạy lại)</li><li>gpt-5.4-nano đang ghi <b>Deprecated</b> trên trang giá → chọn bản thay thế</li><li>Token đo trên tiếng Việt; model khác hãng tách token khác → số có thể lệch</li></ul></div>
     </div>
   </div>
-  <p class="src">Nguồn: <code>cost/cost-estimate.md</code>, <code>cost/simulate-1-summary.md</code>, <code>cost/personas.yaml</code> · simulate-1@20261128-024111 · giá: developers.openai.com/api/docs/pricing</p>
+  <p class="src">Nguồn: <code>cost/cost-estimate.md</code>, <code>cost/simulate-2-summary.md</code>, <code>cost/personas.yaml</code> · simulate-2@20261128-035352 (--rate-from eval/run-2.csv) · giá: developers.openai.com/api/docs/pricing</p>
   <div class="notes">Tiền model gần như bằng 0: khoảng 5 đô một tháng cho cả lớp L3. Câu hỏi thật về chi phí là giờ công: key coach phải duyệt nháp, và ai đó phải giữ bảng phân công luôn mới. Chưa có model thứ hai để so.</div>
 </section>
 
@@ -366,8 +366,8 @@
       <table class="tbl"><tr><td>Lượt 1 → 2 → 3</td><td><b>24 → 24 → 26</b> / 26</td></tr><tr><td>Ngưỡng metric đạt (lượt 3)</td><td><b>4/4</b></td></tr><tr><td>Câu tấn công / từ chối</td><td><b>6/6</b> cả 3 lượt</td></tr><tr><td>Lỗi chính đã sửa</td><td>model đoán → code đọc</td></tr></table>
       <div class="lbl mt-s">Giới hạn</div><ul><li>2 lượt liên tiếp đạt (3, 4) — mẫu nhỏ; model mỗi lượt một khác</li><li>Data giả lập, nhóm → phòng tự dựng</li></ul>
       <p class="src" style="margin-top:auto">Gỡ bằng: trang 8 · việc 1 (data thật) + việc 3 (nhiều lượt)</p></div>
-    <div class="card card-accent" style="display:flex;flex-direction:column;gap:10px"><div class="lbl">Đáng tiền? · trang 6</div><div class="big" style="color:var(--good)">$5.35 / tháng</div>
-      <table class="tbl"><tr><td>Chi phí / phiên</td><td><b>$0.00062</b></td></tr><tr><td>Chi phí / học viên / tháng</td><td><b>$0.0076</b></td></tr><tr><td>Impact / học viên / tháng</td><td><b>~21 phút</b></td></tr><tr><td>Tự gửi tin</td><td><b>không</b> → không thêm nguồn lệch</td></tr></table>
+    <div class="card card-accent" style="display:flex;flex-direction:column;gap:10px"><div class="lbl">Đáng tiền? · trang 6</div><div class="big" style="color:var(--good)">$5.37 / tháng</div>
+      <table class="tbl"><tr><td>Chi phí / phiên</td><td><b>$0.00062</b></td></tr><tr><td>Chi phí / học viên / tháng</td><td><b>$0.0077</b></td></tr><tr><td>Impact / học viên / tháng</td><td><b>~21 phút</b></td></tr><tr><td>Tự gửi tin</td><td><b>không</b> → không thêm nguồn lệch</td></tr></table>
       <div class="lbl mt-s">Giới hạn</div><ul><li>Chưa tính giờ duyệt nháp của key coach</li><li>Chưa có giá model thứ hai; model đang Deprecated</li></ul>
       <p class="src" style="margin-top:auto">Gỡ bằng: trang 8 · việc 4 (gộp nháp, đo phút duyệt)</p></div>
   </div>

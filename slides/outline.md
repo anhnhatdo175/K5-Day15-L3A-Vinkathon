@@ -73,7 +73,7 @@ Ai nói trang nào (mỗi người ≥1 phần, theo kế hoạch spec §10 ch�
 
 ### 6 · Chi phí khi dùng thật
 
-- 50 phiên mô phỏng, đo token trên gpt-5.4-nano: **$0.00062 / phiên** · **$5.35 / tháng cho 700 học viên** (thấp $3.29 · cao $7.64)
+- 50 phiên mô phỏng, đo token trên gpt-5.4-nano (qua OpenRouter), tỉ lệ đạt lượt 2 (92%): **$0.00062 / phiên** · **$0.00067 / task thành công** · **$5.37 / tháng cho 700 học viên** (thấp $3.30 · cao $7.68)
 - So với impact ~21 phút / học viên / tháng → tiền model không đáng kể; chi phí thật là giờ công key coach duyệt nháp + giữ bảng cập nhật
 - Model thứ hai: __ *(chờ giá có nguồn)*
 - Nguồn: `cost/cost-estimate.md`, `cost/simulate-1-summary.md`
