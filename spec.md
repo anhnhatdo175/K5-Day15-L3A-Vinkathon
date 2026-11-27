@@ -43,28 +43,74 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
 
 ## §4. Thiết kế *(guide 2.2, 3.2)*
-- **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả):
-- Không làm (≥3 điều):
-- **Sơ đồ** (ảnh / Mermaid / draw.io): [chèn ở đây]
-- **Hình dạng:** [ ] workflow cố định · [ ] một agent · [ ] nhiều agent — 2 dòng lý do, và vì sao **không** chọn hình dạng phức tạp hơn:
-- **AI dựa vào đâu** — mỗi công cụ (khớp `codebase/tools.py`):
+- **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả): một học viên L3 · tối trước buổi lab hỏi "mai lab phòng nào" · trợ lý quyết định **nêu phòng** (chỉ khi phòng đã chốt trong bảng phân công mới nhất, kèm giờ cập nhật bảng), **hỏi lại một câu** khi thiếu lớp / ngày / nhóm, hay **nói "phòng chưa chốt"** và soạn câu hỏi chuyển key coach · học viên biết chắc phòng, hoặc biết là phòng chưa chốt, nên không đi nhầm.
+- Không làm:
+  1. Không chốt, không đổi, không gợi ý phòng (phòng do trường cấp).
+  2. Không tự gửi thông báo hay tin nhắn cho ai; câu hỏi cho key coach chỉ là **bản nháp chờ duyệt**.
+  3. Không giúp key coach / ban đào tạo chia coach theo phòng (lát cắt khác của A5).
+  4. Không trả lời lịch buổi giảng, điểm danh, nội dung bài lab; chỉ phòng + giờ buổi lab L3A / L3B.
+  5. Không đọc Discord / Zalo / email làm nguồn; chỉ bảng phân công chính thức (và bảng lab coach để **phát hiện lệch**, không để trả lời).
+- **Sơ đồ** (Input → AI Core → Chặn rủi ro → Output):
+
+  ```mermaid
+  flowchart TD
+      IN["INPUT<br/>Câu học viên L3 gõ<br/>vd 'mai L3A nhóm 7 lab phòng nào?'"]
+
+      subgraph CORE["AI CORE · workflow cố định"]
+          P["① Trích ý (model)<br/>lớp · ngày · nhóm / tên"]
+          V{"② Đủ lớp + ngày + nhóm?<br/>(code)"}
+          T1["③ get_schedule(date, class)<br/>bảng phân công chính thức mới nhất<br/>→ buổi · giờ · phòng · trạng thái · giờ cập nhật"]
+          T2["④ find_group(class, query)<br/>danh sách nhóm chuẩn<br/>→ nhóm của học viên"]
+          C["⑤ check_conflicts(plan) (code)<br/>so bảng chính thức với bảng lab coach<br/>→ chốt / chờ xác nhận / online / lệch / không có buổi"]
+          W["⑥ Viết câu trả lời (model)<br/>chỉ từ dữ kiện ③–⑤"]
+      end
+
+      subgraph GUARD["CHẶN RỦI RO · code, không tin model"]
+          G1{"⑦ Mã phòng + giờ trong câu trả lời<br/>có đúng trong kết quả ③ không?"}
+          G2{"⑧ Trạng thái 'chốt'?"}
+          D["draft_notice(class, changes)<br/>NHÁP câu hỏi cho key coach<br/>trạng thái: chờ duyệt, không tự gửi"]
+      end
+
+      O1["OUTPUT · Phòng X, giờ Y<br/>theo bảng cập nhật lúc HH:MM"]
+      O2["OUTPUT · Hỏi lại 1 câu<br/>(thiếu lớp / ngày / nhóm, tên lệch danh sách)"]
+      O3["OUTPUT · 'Phòng chưa chốt' / 'buổi chuyển online' /<br/>'các bảng đang ghi khác nhau'<br/>+ đã soạn câu hỏi cho key coach"]
+      KC(["Key coach duyệt rồi mới gửi"])
+
+      IN --> P --> V
+      V -- thiếu --> O2
+      V -- đủ --> T1 --> T2 --> C --> W --> G1
+      T2 -- không tìm thấy / nhiều kết quả --> O2
+      G1 -- sai / bịa --> O3
+      G1 -- đúng --> G2
+      G2 -- chốt --> O1
+      G2 -- chờ xác nhận / lệch / online --> D --> O3
+      D -.-> KC
+  ```
+
+- **Hình dạng:** [x] workflow cố định · [ ] một agent · [ ] nhiều agent. Lý do: các bước luôn giống nhau (trích ý → tra bảng → so lệch → trả lời), nên không cần AI tự chọn bước. Model chỉ ở hai chỗ, ① trích ý và ⑥ viết câu; tra bảng, so lệch và kiểm phòng chạy bằng code. **Không chọn agent** vì sai phòng thì học viên đi nhầm, mà agent tự chọn công cụ khó kiểm lại và khó chặn. Không cần nhiều agent vì chỉ có một việc, một người dùng.
+- **AI dựa vào đâu** — mỗi công cụ (đề xuất; Cát Tân khớp tên khi viết `codebase/tools.py`):
 
   | Công cụ | Input | Output | Tác động ra ngoài? |
   |---|---|---|---|
-  |  |  |  |  |
+  | `get_schedule` | `date` (YYYY-MM-DD), `class` (L3A / L3B) | danh sách buổi lab trong ngày: mã buổi, giờ bắt đầu–kết thúc, phòng theo nhóm, trạng thái phòng (`chot` / `cho_xac_nhan` / `online`), giờ cập nhật bảng | Không (chỉ đọc) |
+  | `find_group` | `class`, chuỗi học viên gõ (số nhóm hoặc tên) | nhóm khớp trong danh sách chuẩn; 0 hoặc >1 kết quả thì trả rỗng / danh sách để hỏi lại | Không (chỉ đọc) |
+  | `check_conflicts` | kết quả `get_schedule` + bảng lab coach cùng buổi | các chỗ lệch phòng / giờ / trùng phòng giữa hai bảng; **chạy bằng code, không phải AI** | Không (chỉ đọc) |
+  | `draft_notice` | `class`, `changes` (buổi, nhóm, vấn đề: chưa chốt / lệch / online) | bản nháp câu hỏi cho key coach, trạng thái `cho_duyet` | **Không gửi**; chỉ tạo nháp, key coach duyệt rồi tự gửi |
 
-- **Mức tự động:** [ ] AI gợi ý, người quyết · [ ] AI tự làm khi chắc, chuyển người khi không · [ ] AI tự làm — lý do (sai thì ai chịu gì, sửa đắt hay rẻ):
-- **Chỗ chặn rủi ro** (rủi ro lớn nhất của lát cắt bị chặn ở đâu, bằng gì):
-- **Chỗ người duyệt** (việc AI không được tự làm):
-- **Nguyên tắc thiết kế** (≥3, bắt buộc G10):
+- **Mức tự động:** [ ] AI gợi ý, người quyết · [x] AI tự làm khi chắc, chuyển người khi không · [ ] AI tự làm. Lý do: câu "phòng nào" nhiều, lặp lại; khi bảng đã chốt thì trả lời ngay là rẻ và đúng. Sai thì học viên đi nhầm phòng, trễ đầu buổi lab, đến nơi mới biết thì sửa đắt, nên mọi trường hợp chưa chắc (chưa chốt, hai bảng lệch, chuyển online, không tìm thấy nhóm) đều không đoán mà nói rõ + chuyển key coach.
+- **Chỗ chặn rủi ro:** rủi ro lớn nhất là **nêu sai phòng hoặc nêu phòng "chờ xác nhận" như đã chốt**. Chặn ở ⑦–⑧ bằng code: tách mã phòng và giờ trong câu trả lời của model, so với kết quả `get_schedule` của đúng buổi, đúng nhóm; không khớp thì bỏ câu của model, trả câu mẫu "chưa xác định được phòng" + nháp cho key coach. Trạng thái khác `chot` thì không bao giờ ra nhánh O1.
+- **Chỗ người duyệt:** mọi thông báo / câu hỏi gửi cho key coach, coach hay học viên khác (`draft_notice` chỉ tạo nháp); việc chốt hoặc đổi phòng; xử lý khi hai bảng lệch nhau.
+- **Nguyên tắc thiết kế:**
 
   | Nguyên tắc | Chỗ cụ thể trên sơ đồ / trong bản chạy thử |
   |---|---|
-  | G10 — thu hẹp phạm vi khi không chắc |  |
-  |  |  |
-  |  |  |
+  | G10 — thu hẹp phạm vi khi không chắc | ② thiếu lớp / ngày / nhóm → hỏi lại đúng một câu; ⑧ phòng chưa chốt, lệch hay online → chỉ nói tình trạng, không đoán phòng (nhánh O2, O3) |
+  | Một nguồn sự thật | ③ chỉ bảng phân công chính thức mới nhất được dùng để trả lời; bảng lab coach chỉ vào ⑤ để phát hiện lệch |
+  | Code kiểm, không tin model | ⑦ mã phòng + giờ trong output phải có trong kết quả công cụ; ⑤ so lệch chạy bằng code |
+  | Cho người dùng biết độ mới của thông tin | O1 luôn kèm "theo bảng cập nhật lúc HH:MM" để học viên biết khi nào nên hỏi lại |
+  | Tác động ra ngoài chỉ là nháp | `draft_notice` trả trạng thái `cho_duyet`, không có hàm gửi |
 
-- Phần nào còn giả (công cụ trả dữ liệu giả, model chế độ giả…) — ghi rõ, không giả làm thật:
+- Phần nào còn giả: **model đang ở chế độ giả** (`MODEL_PROVIDER=fake`) đến khi nối API key; **dữ liệu lịch là bộ giả lập của BTC** (`data/training-ops/`, không phải lịch thật); `draft_notice` không nối kênh gửi nào (cố ý, không phải chưa làm); tên công cụ ở bảng trên là đề xuất, cập nhật theo `codebase/tools.py` khi Cát Tân viết xong.
 
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
