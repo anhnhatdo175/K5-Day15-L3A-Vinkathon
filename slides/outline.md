@@ -10,7 +10,7 @@
 | 3 | Giải pháp | Lát cắt một câu · sơ đồ · AI tự làm đến đâu, vì sao | `spec.md` §4 | ☑ nháp |
 | 4 | Demo live | 1 trường hợp thường + 1 trường hợp khó (lấy từ bộ câu thử); mạng hỏng → video dự phòng | `eval/benchmark.csv` | ☑ nháp |
 | 5 | **Đánh giá thế nào** | Dataset · bộ câu thử · metric · lượt 1 → lượt 2 so với chuẩn "đạt" (kèm run ID) · lỗi chính | `eval/README.md`, `eval/report.md` | ☑ nháp |
-| 6 | **Chi phí khi dùng thật** | Chi phí / task thành công · 3 kịch bản · so với impact | `cost/cost-estimate.md` | ☑ nháp (thiếu model thứ hai) |
+| 6 | **Chi phí khi dùng thật** | Chi phí / task thành công · 3 kịch bản · so với impact | `cost/cost-estimate.md` | ☑ đủ 2 model |
 | 7 | Kết luận | Go / iterate / stop — dẫn số ở trang 1, 5, 6 | — | ☑ nháp, nhóm chốt |
 | 8 | Nếu có thêm 1 tuần | 2–3 việc, trỏ về lỗi còn lại / phản hồi người dùng | `eval/report.md` mục 4 · `validation/log.md` | ☑ nháp |
 
@@ -75,7 +75,7 @@ Ai nói trang nào (mỗi người ≥1 phần, theo kế hoạch spec §10 ch�
 
 - 50 phiên mô phỏng, đo token trên gpt-5.4-nano (qua OpenRouter), tỉ lệ đạt lượt 2 (92%): **$0.00062 / phiên** · **$0.00067 / task thành công** · **$5.37 / tháng cho 700 học viên** (thấp $3.30 · cao $7.68)
 - So với impact ~21 phút / học viên / tháng → tiền model không đáng kể; chi phí thật là giờ công key coach duyệt nháp + giữ bảng cập nhật
-- Model thứ hai: __ *(chờ giá có nguồn)*
+- Model thứ hai: **gpt-5.4-mini** (vào $0.75 · ra $4.50 / 1M): $0.00248 / task thành công · **$19.81 / tháng** cho 700 học viên, gấp ~3,7 lần nano (token đo trên nano, tính giá mini)
 - Nguồn: `cost/cost-estimate.md`, `cost/simulate-1-summary.md`
 
 ### 7 · Kết luận: *(nhóm chốt: go / iterate / stop)*

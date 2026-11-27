@@ -333,22 +333,22 @@
         <tr><td><b>dùng nhiều</b> (4–6 lần / tuần)</td><td>0,31</td><td>20</td><td>2</td><td>2208 / 256</td></tr>
       </table>
       <p class="src">Số lượt / phiên: tự ước tính (1 lượt hỏi lại khi thiếu lớp / nhóm) · mỗi lượt hỏi gọi model 1–2 lần (trích ý + viết câu; hỏi lại và từ chối không gọi bước viết)</p>
-      <h4 class="mt-m">3 kịch bản quy mô · gpt-5.4-nano</h4>
+      <h4 class="mt-m">3 kịch bản quy mô · 2 model</h4>
       <table class="tbl">
-        <tr><th>Kịch bản</th><th>Số học viên</th><th>Nguồn số người</th><th>Chi phí / tháng</th></tr>
-        <tr><td><b>Thấp</b></td><td>430</td><td>700 × 8/13 gặp sự cố (khảo sát A7)</td><td><b>$3.30</b></td></tr>
-        <tr class="hl"><td><b>Cơ sở</b></td><td>700</td><td>lớp L3 (file track A, mục A5)</td><td><b>$5.37</b></td></tr>
-        <tr><td><b>Cao</b></td><td>1.000</td><td>tự ước tính (nếu mở cho cả L2)</td><td><b>$7.68</b></td></tr>
+        <tr><th>Kịch bản</th><th>Số học viên</th><th>Nguồn số người</th><th>nano / tháng</th><th>mini / tháng</th></tr>
+        <tr><td><b>Thấp</b></td><td>430</td><td>700 × 8/13 gặp sự cố (khảo sát A7)</td><td><b>$3.30</b></td><td>$12.17</td></tr>
+        <tr class="hl"><td><b>Cơ sở</b></td><td>700</td><td>lớp L3 (file track A, mục A5)</td><td><b>$5.37</b></td><td>$19.81</td></tr>
+        <tr><td><b>Cao</b></td><td>1.000</td><td>tự ước tính (nếu mở cho cả L2)</td><td><b>$7.68</b></td><td>$28.31</td></tr>
       </table>
     </div>
     <div class="grid" style="gap:16px">
       <div class="card card-accent"><h4>So với impact</h4><ul><li>Impact cơ sở ≈ 250 giờ / tháng ÷ 700 ≈ <b>21 phút / học viên / tháng</b>; người gặp sự cố: 2,9 lần × 12′ ≈ 35 phút</li><li>Tiền model: <b>$0.0077 / học viên / tháng</b></li><li>→ Về tiền model, bài toán đáng làm ở mọi kịch bản</li></ul></div>
       <div class="card card-soft"><h4>Chi phí thật không nằm ở model <span class="dim2" style="font-weight:400">(chưa tính)</span></h4><ul><li>Giờ công key coach duyệt bản nháp <code>draft_notice</code> (mỗi câu hỏi buổi chưa chốt → 1 nháp; chưa gộp nháp trùng buổi)</li><li>Giữ bảng phân công chính thức luôn mới — trợ lý chỉ đúng bằng bảng</li><li>Hosting: nhỏ ở quy mô 700 người</li></ul></div>
-      <div class="card card-outline"><h4>Còn thiếu</h4><ul><li>Giá <b>model thứ hai</b> có nguồn: __ (tính lại được từ token đã đo, không cần chạy lại)</li><li>gpt-5.4-nano đang ghi <b>Deprecated</b> trên trang giá → chọn bản thay thế</li><li>Token đo trên tiếng Việt; model khác hãng tách token khác → số có thể lệch</li></ul></div>
+      <div class="card card-outline"><h4>Còn thiếu</h4><ul><li><b>gpt-5.4-mini</b> (vào $0.75 · ra $4.50): gấp ~3,7 lần, chưa đo chất lượng riêng</li><li>gpt-5.4-nano đang ghi <b>Deprecated</b> trên trang giá → chọn bản thay thế</li><li>Token đo trên tiếng Việt; model khác hãng tách token khác → số có thể lệch</li></ul></div>
     </div>
   </div>
   <p class="src">Nguồn: <code>cost/cost-estimate.md</code>, <code>cost/simulate-2-summary.md</code>, <code>cost/personas.yaml</code> · simulate-2@20261128-035352 (--rate-from eval/run-2.csv) · giá: developers.openai.com/api/docs/pricing</p>
-  <div class="notes">Tiền model gần như bằng 0: khoảng 5 đô một tháng cho cả lớp L3. Câu hỏi thật về chi phí là giờ công: key coach phải duyệt nháp, và ai đó phải giữ bảng phân công luôn mới. Chưa có model thứ hai để so.</div>
+  <div class="notes">Tiền model gần như bằng 0: khoảng 5 đô một tháng cho cả lớp L3. Câu hỏi thật về chi phí là giờ công: key coach phải duyệt nháp, và ai đó phải giữ bảng phân công luôn mới. Đổi sang gpt-5.4-mini thì khoảng 20 đô một tháng, vẫn rất nhỏ.</div>
 </section>
 
 <!-- ============ 7 · KẾT LUẬN ============ -->
@@ -368,7 +368,7 @@
       <p class="src" style="margin-top:auto">Gỡ bằng: trang 8 · việc 1 (data thật) + việc 3 (nhiều lượt)</p></div>
     <div class="card card-accent" style="display:flex;flex-direction:column;gap:10px"><div class="lbl">Đáng tiền? · trang 6</div><div class="big" style="color:var(--good)">$5.37 / tháng</div>
       <table class="tbl"><tr><td>Chi phí / phiên</td><td><b>$0.00062</b></td></tr><tr><td>Chi phí / học viên / tháng</td><td><b>$0.0077</b></td></tr><tr><td>Impact / học viên / tháng</td><td><b>~21 phút</b></td></tr><tr><td>Tự gửi tin</td><td><b>không</b> → không thêm nguồn lệch</td></tr></table>
-      <div class="lbl mt-s">Giới hạn</div><ul><li>Chưa tính giờ duyệt nháp của key coach</li><li>Chưa có giá model thứ hai; model đang Deprecated</li></ul>
+      <div class="lbl mt-s">Giới hạn</div><ul><li>Chưa tính giờ duyệt nháp của key coach</li><li>gpt-5.4-mini đắt ~3,7 lần, chưa đo chất lượng; nano đang ghi Deprecated</li></ul>
       <p class="src" style="margin-top:auto">Gỡ bằng: trang 8 · việc 4 (gộp nháp, đo phút duyệt)</p></div>
   </div>
   <div class="strip">

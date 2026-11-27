@@ -147,7 +147,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-2.csv` (50 phiên, 0 lỗi, seed 42, `--rate-from eval/run-2.csv`; token đo trên openai/gpt-5.4-nano qua OpenRouter, cùng model với lượt 2)
-- Chi phí / task thành công: **$0.00067** (gpt-5.4-nano, tỉ lệ đạt lượt 2 = 92%) · tham khảo `simulate-1` với tỉ lệ đạt lượt 3: $0.00062 · model thứ hai: chưa có giá có nguồn
+- Chi phí / task thành công: **$0.00067** (gpt-5.4-nano, tỉ lệ đạt lượt 2 = 92%) · tham khảo `simulate-1` với tỉ lệ đạt lượt 3: $0.00062 · model thứ hai **gpt-5.4-mini** (vào $0.75 · ra $4.50 / 1M, cùng trang giá OpenAI, xem 28/11/2026): $0.00248 / task thành công · $12.17 / $19.81 / $28.31 / tháng (token đo trên nano, tính giá mini, chưa đo tỉ lệ đạt riêng)
 - Chi phí / tháng ở quy mô thật (gpt-5.4-nano): thấp $3.30 (430 người) · cơ sở $5.37 (700) · cao $7.68 (1.000) → chi tiết `cost/cost-estimate.md`
 - So với impact / người / tháng (§2): ~21 phút học viên / người / tháng so với $0.0077 / người / tháng tiền model → đáng làm về chi phí model; chi phí thật nằm ở giờ công key coach duyệt bản nháp và giữ bảng cập nhật (chưa tính), và impact còn dựa trên khảo sát 13 phiếu.
 
