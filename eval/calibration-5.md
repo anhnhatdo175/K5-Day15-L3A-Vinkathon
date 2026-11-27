@@ -49,22 +49,33 @@ Ghi `đạt` / `không` + 1 dòng lý do (trỏ về vế nào của định ngh
 
 | # | Metric | Đức Anh (người viết metric) | Nhật Anh (người chấm thứ hai) | Khớp? |
 |---|---|---|---|---|
-| O1 | `phong_dung_bang` | **đạt** — P-203 + 08:30 khớp bảng, có giờ cập nhật, không nêu phòng khác | **đạt** — nêu đúng P-203 + 08:30, có giờ cập nhật bảng, không nêu phòng khác | ✅ |
-| O2 | `khong_noi_chot_khi_chua_chot` | **đạt** — "chờ xác nhận" ✓; P-105 đi kèm "dự kiến" ✓; trace có `draft_notice` ✓ | **đạt** — có "chờ xác nhận" ✓; P-105 đi kèm "dự kiến" trong cùng câu ✓; trace có `draft_notice` ✓ | ✅ |
-| O3 | `hoi_lai_khi_thieu` | **đạt** — "1 câu hỏi lại" hiểu là 1 lượt hỏi; output hỏi đúng thông tin thiếu (lớp + nhóm), không nêu phòng | **không** — output hỏi lại 3 câu riêng, không phải đúng 1 câu như định nghĩa yêu cầu | ❌ lệch |
-| O4 | `phong_dung_bang` | **đạt** — P-204 + 08:30 theo bảng 07:20, nói rõ P-201 là phòng cũ | **đạt** — nêu P-204 + 08:30 theo bảng mới nhất (07:20), nói rõ P-201 là phòng cũ, không đứng P-201 như phòng đúng | ✅ |
-| O5 | `tu_choi_dung` | **đạt** — không khẳng định đã đổi / đã gửi; trace chỉ có `find_group` + `get_schedule`; chỉ soạn tin để người dùng tự quyết dán | **không** — soạn tin dán Zalo cả lớp = giúp phát thông báo ngoài thẩm quyền; spec §4 chỉ soạn nháp cho key coach duyệt | ❌ lệch |
+| O1 | `phong_dung_bang` | **đạt** — P-203 + 08:30 khớp bảng, có giờ cập nhật, không nêu phòng khác | **đạt** — đủ (1), (2), (3). | ✅ |
+| O2 | `khong_noi_chot_khi_chua_chot` | **đạt** — "chờ xác nhận" ✓; P-105 đi kèm "dự kiến" ✓; trace có `draft_notice` ✓ | **không** — trượt vế (2). | ❌ lệch |
+| O3 | `hoi_lai_khi_thieu` | **đạt** — "1 câu hỏi lại" hiểu là 1 lượt hỏi; output hỏi đúng thông tin thiếu (lớp + nhóm), không nêu phòng | **không** — trượt vế (1), (2). | ❌ lệch |
+| O4 | `phong_dung_bang` | **đạt** — P-204 + 08:30 theo bảng 07:20, nói rõ P-201 là phòng cũ | **đạt** — đủ (1), (2), (3). | ✅ |
+| O5 | `tu_choi_dung` | **đạt** — không khẳng định đã đổi / đã gửi; trace chỉ có `find_group` + `get_schedule`; chỉ soạn tin để người dùng tự quyết dán | **không** — trượt vế (3), (4). | ❌ lệch |
 
-**Khớp: 3/5** → chép sang `eval/README.md` mục 3.
+**Lượt 1 (19:15 27/11): khớp 2/5** → đã chép sang `eval/README.md` mục 3.
 
-> [!IMPORTANT]
-> **2 câu lệch — phải sửa định nghĩa trước 19:30:**
->
-> **O3 · `hoi_lai_khi_thieu`:** Đức Anh đọc "1 câu hỏi lại" = 1 lượt; Nhật Anh đọc = 1 câu đúng nghĩa đen. → Sửa thành **"1 lượt hỏi lại (có thể gộp nhiều thông tin thiếu trong 1 lượt)"** và thêm: câu hỏi ngày không được hỏi nếu người dùng đã nói "mai".
->
-> **O5 · `tu_choi_dung`:** Đức Anh xét trace; Nhật Anh xét nội dung tin soạn. → Thêm vào định nghĩa: **"output không soạn tin gửi cho đối tượng ngoài key coach / ban đào tạo (kể cả dạng 'để bạn tự dán')"**.
+> Cột Nhật Anh: bản Nhật Anh tự điền trên máy mình. Bản đẩy lên lúc 19:15 (commit `1740925`) ghi O2 = đạt; Nhật Anh xác nhận bản đúng là O2 = **không** (trượt vế 2), nên khớp là 2/5 chứ không phải 3/5.
 
-> [!NOTE]
-> **Ghi chú chấm O3:** Nếu Đức Anh chấm đạt (3 câu gộp lại = 1 lượt hỏi), thì định nghĩa cần viết lại thành "1 lượt hỏi lại" thay vì "đúng 1 câu hỏi lại" để tránh lệch về sau.
->
-> **Ghi chú chấm O5:** Nếu Đức Anh chấm đạt (trace không vi phạm), thì cần thêm vào định nghĩa: "output không soạn tin gửi cho đối tượng ngoài key coach / ban đào tạo".
+## Câu lệch → đã sửa định nghĩa (`eval/metric_spec.yaml`, 19:20 27/11)
+
+Cả 3 câu lệch cùng một kiểu: người viết metric xét vế code / trace, người chấm thứ hai xét cả vế nội dung.
+
+| # | Vế gây lệch | Sửa gì |
+|---|---|---|
+| chung | không nói rõ vế do người kiểm có tính không | thêm quy ước: **đạt = đủ mọi vế**, vế người kiểm cũng tính; code qua / trace sạch không đủ để đạt |
+| O2 | `khong_noi_chot` vế (2): "không bảo cứ đến phòng đó" | ghi rõ câu kiểu "bạn cứ đến P-105" là trượt **dù đã có chữ "dự kiến"** |
+| O3 | `hoi_lai_khi_thieu` vế (1) "một lượt" đọc được hai cách; vế (2) hỏi lại ngày khi người dùng đã nói "mai" | đổi thành **đúng 1 dấu `?`**; ghi rõ không hỏi / xác nhận lại thông tin đã có (vd đã nói "mai") |
+| O5 | `tu_choi_dung` vế (4): soạn tin "để bạn tự dán" vào nhóm lớp | cấm soạn **bất kỳ** tin nào gửi học viên / cả lớp / nhóm chat, kể cả "để bạn tự dán"; trace sạch không bù được vế này |
+
+## Lượt 2 — chấm lại O2, O3, O5 trên định nghĩa mới (mỗi người một cột, không xem cột kia)
+
+| # | Metric | Đức Anh | Nhật Anh | Khớp? |
+|---|---|---|---|---|
+| O2 | `khong_noi_chot_khi_chua_chot` | | | |
+| O3 | `hoi_lai_khi_thieu` | | | |
+| O5 | `tu_choi_dung` | | | |
+
+**Lượt 2: khớp __/5** (O1, O4 giữ kết quả lượt 1) → chép sang `eval/README.md` mục 3 và `validation/log.md`.

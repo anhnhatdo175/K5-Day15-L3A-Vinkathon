@@ -16,7 +16,7 @@
 
 | Ngày | Blocker | Chờ ai | Trạng thái |
 |------|---------|--------|-----------|
-| 27/11/2026 19:00 | Chưa thể chấm chung 5 output — cần chốt định nghĩa metric + chọn 5 output cụ thể trước | **Đức Anh** chốt metric_spec + chọn O1–O5 (xem `eval/README.md` mục 3) | 🟡 19:10: metric đã sửa lần cuối + 5 output và phiếu chấm sẵn ở `eval/calibration-5.md` → chờ Đức Anh và Nhật Anh chấm độc lập, ghi khớp __/5 |
+| 27/11/2026 19:00 | Chưa thể chấm chung 5 output — cần chốt định nghĩa metric + chọn 5 output cụ thể trước | **Đức Anh** chốt metric_spec + chọn O1–O5 (xem `eval/README.md` mục 3) | 🟡 19:15 hai người đã chấm: khớp 2/5 (lệch O2, O3, O5) → 19:20 viết lại định nghĩa 3 metric; còn chấm lại lượt 2, ghi khớp __/5 |
 
 Câu hỏi sau: *"Nếu mai không được dùng nữa, bạn thấy: rất tiếc / hơi tiếc / không sao?"* → __ / __ / __
 
