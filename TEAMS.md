@@ -11,9 +11,10 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | ____ | ____ | Đội trưởng | ____ |
-| 2 | ____ | ____ | Thành viên | ____ |
+| 1 | Đỗ Nhật Anh | 2A202603701 | Đội trưởng | ____ |
+| 2 | ____ | ____ | Đội phó | ____ |
 | 3 | ____ | ____ | Thành viên | ____ |
+| 4 | ____ | ____ | Thành viên | ____ |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
