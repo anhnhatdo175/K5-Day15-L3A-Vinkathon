@@ -1,33 +1,43 @@
-# AI SPEC — [Tên lát cắt] · Nhóm [tên nhóm] · Phòng [XXX] · Zone [X]
+# AI SPEC — Trợ lý phòng lab có căn cứ · Nhóm Vinkathon · Phòng __ · Zone __
 
 > Mốc nộp: §7 chốt chuẩn "đạt" tại **CP2 19:30 Thứ Sáu 27/11** · §0–§7 nộp **CP3 10:00 Thứ Bảy 28/11** · đủ §0–§10 **CP4 14:30 Thứ Bảy 28/11** · §10 changelog ghi tiếp đến **23:59 Thứ Bảy 28/11**.
 > Đầu mỗi mục ghi bước guide (`02-guide.md` trong repo đề) chỉ cách điền. Mỗi mục ngắn, có số và nguồn; chi tiết để ở file được trỏ tới. Xoá dòng hướng dẫn trong ngoặc vuông khi điền xong.
 
-Track: [ ] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: [đề gợi ý trong file track, hoặc bài toán nhóm tự mở rộng] __
-Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
+Track: [x] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: **A5 · Vận hành đào tạo** (đề gợi ý trong file track A): học viên L3 cần biết chắc phòng và giờ của buổi lab, trong khi phòng chỉ chốt sát ngày và thông tin nằm ở nhiều nơi
+Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/training-ops/` (**giả lập**, chỉ để hình dung workflow và dựng bản chạy thử, không phải bằng chứng pain; nguyên file để ở `data-btc/`, không commit) · `data/preclass/` (số cho các hướng so sánh ở §2)
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
-- Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
-- Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
+- Luồng hiện tại của việc này (nguồn: file track A, mục A5 "Hiện trạng" do BTC mô tả; cấu trúc bảng: `data/training-ops/README.md`):
+  1. Ban đào tạo gom form đăng ký của giảng viên vào **một bảng lịch chung**, mỗi ô là chữ tự do (lớp, chủ đề, phòng, giảng viên). Lớp L3 hơn 700 học viên, chia L3A và L3B; mỗi buổi lab rải 3–6 phòng ở nhiều khu.
+  2. **Nhiều phòng chỉ chốt sát ngày học**, có khi ngay trong ngày, và vẫn có thể đổi; tới lúc chốt, ô lịch ghi "Phòng dự kiến … (chờ xác nhận)" hoặc "Phòng: chờ xác nhận".
+  3. Đội lab coach giữ **bảng riêng** (chép lịch từ bảng chung), đổi ca qua form và nhóm Zalo.
+  4. Học viên **nhận lịch qua email**, tra nhóm của mình trong **một link danh sách**; ai chưa chắc thì hỏi trên Discord, Zalo, hỏi bạn hoặc coach *(phần hỏi: giả thuyết, kiểm bằng phỏng vấn)*.
+  - Ảnh chụp từ tài khoản của mình: **chưa có**; chụp email lịch lab và danh sách nhóm gần nhất của chính mình (che thông tin) trước CP3.
+  - Hình dạng vấn đề trong bộ **giả lập** của BTC (chỉ để hình dung, **không phải bằng chứng**): lúc xuất bảng phân công 27/04/2027 21:00, 22/43 ô buổi chưa học còn chưa chốt phòng; bản chép lịch trong file lab coach lệch dòng phòng ở 44/133 ô so với bảng gốc; buổi L3B LAB 10 có ba nơi ghi ba giá trị phòng khác nhau.
+- Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn: **chưa kiểm**; hỏi trong phỏng vấn: có bot / kênh nào trả lời phòng, lịch không, ai trả lời các câu "phòng nào" hiện nay.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (một vai cụ thể):
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:
-- Pain (KHÔNG chữ AI): ai — đang làm gì — vướng đâu — hậu quả gì:
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): __
+- Người dùng chính (một vai cụ thể): **học viên lớp L3 (L3A / L3B) khoá AI20K đi lab trực tiếp**, tối trước buổi lab mới đi tìm phòng của nhóm mình.
+- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): **biết chắc phòng và giờ của buổi lab sắp tới của nhóm mình, trước khi đến trường.**
+- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ *(giả thuyết, kiểm bằng phỏng vấn, khảo sát)*: đọc email lịch, tra nhóm trong link danh sách, hỏi trên Discord / Zalo / hỏi bạn. Hỏng khi phòng chưa chốt lúc gửi lịch, đổi sau khi đã báo, hoặc các nơi ghi khác nhau. Chưa bỏ vì không có nơi nào chính thức hơn để tra.
+- Pain (KHÔNG chữ AI): **học viên L3 tối trước buổi lab tìm xem nhóm mình học phòng nào, mấy giờ, nhưng phòng còn "chờ xác nhận" hoặc đổi sau khi đã báo, thông tin ở email, danh sách nhóm, Discord, Zalo không khớp nhau, nên phải hỏi đi hỏi lại, đến trễ hoặc đi nhầm phòng, mất đầu giờ lab.**
+- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): **chưa có, đang thu** (khảo sát ≥20 + phỏng vấn ≥3 từ 27/11 17:40). Giả thuyết và ngưỡng "đúng / sai": `evidence/hypothesis.md`.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| **A5 · học viên biết chắc phòng / giờ buổi lab** | >700 học viên L3 (file track A, mục A5) × __% từng gặp sự cố phòng lab trong tháng (khảo sát câu 5–6) | __ buổi lab / người / tháng (khảo sát câu 2) × __ lần gặp sự cố (khảo sát câu 5–6) | __ phút mỗi lần (khảo sát câu 7), trễ đầu giờ lab | __ *(chờ khảo sát)* | Kịp: một quyết định AI; bảng lịch giả lập của BTC có sẵn để chạy thử | ✅ Chọn |
+| A5 · key coach soạn và báo phòng mỗi tối trước buổi lab | __ key coach / Day Lead (phỏng vấn) | __ tối / tháng (phỏng vấn) | __ phút / tối (phỏng vấn) | __ | Kịp, nhưng phải tự dựng danh sách nhóm; key coach ít người, khó đủ 3 người phỏng vấn | Dự phòng |
+| A4 · lớp học kiểu mới (bạn học AI xen vào bài giảng) | 273 học viên thấy lời bạn học AI xen vào, 31 từng trả lời (M10, `evidence/data-mining.md`) | 89/7.992 lượt xen vào được học viên trả lời (1,1%, 05/11–25/11) | Chưa đo được: data không có chữ, không biết vì sao không trả lời | - | Sản phẩm lớn; chuẩn "đạt" phải có chỉ số về học | ❌ Loại |
+| A6 · hỗ trợ mini lab | 453 lần làm xong mini lab (M11) | 102/453 lần là bấm "bỏ qua" (23%, M11) | Chưa biết vì sao bỏ qua | - | Phải tự thu mọi dữ liệu | ❌ Loại |
 
-- **Impact / tháng** của hướng chọn = __ người × __ lần × __ phút = __ — nguồn từng thừa số: __ (không có nguồn thì ghi rõ *(tự ước tính)*)
+- **Impact / tháng** của hướng chọn = __ học viên × __ lần × __ phút = __ — nguồn từng thừa số: số học viên = >700 học viên L3 (file track A, mục A5) × tỉ lệ từng gặp sự cố (khảo sát câu 5–6) · số lần / tháng = khảo sát câu 2, 5, 6 · phút mỗi lần = khảo sát câu 7 *(chưa có số, điền trước CP3; thừa số nào không có nguồn thì ghi rõ (tự ước tính))*
 - Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá):
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):
+  - **A4:** chỉ 1,1% lượt bạn học AI xen vào được trả lời, nhưng data không cho biết vì sao; làm cần đo "học được" (chỉ số về học), quá to cho khoảng 10 giờ.
+  - **A6:** 23% lần xong mini lab là bấm bỏ qua, nhưng chưa biết vì sao bỏ qua; hướng riêng phải tự thu mọi dữ liệu.
+  - **A5 phía key coach:** giữ làm **dự phòng**: chọn nếu phỏng vấn cho thấy chỗ đau nằm ở phía coach và gặp đủ ≥3 key coach / Day Lead.
+- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8): chờ khảo sát câu 2 và câu 8; dự kiến 3 kiểu: hỏi dồn tối trước buổi lab · hỏi rải rác · không hỏi (chỉ xem email).
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
@@ -88,20 +98,20 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp, guide "Cách chia việc"): mỗi người **giữ một mảng** và phải giải thích được phần có tên mình; **cặp đổi sau CP2** để ai cũng kể lại được cả câu chuyện; ai cũng tự chạy `run.py eval` và `run.py simulate` ít nhất một lần.
-  - **Đỗ Nhật Anh** (đội trưởng): bằng chứng pain và impact, `evidence/` · §0–§2 · slide · §10 · nộp checkpoint
-  - **Phạm Cát Tân:** bản chạy thử `codebase/` (luồng, công cụ, nối model, chặn rủi ro) · §9
+  - **Đỗ Nhật Anh** (đội trưởng): bằng chứng pain và impact, `evidence/` (khảo sát + phỏng vấn học viên L3 về phòng lab) · §0–§2 · slide · §10 · nộp checkpoint
+  - **Phạm Cát Tân:** bản chạy thử `codebase/` (tra bảng lịch, kiểm mã phòng, nối model, chặn rủi ro) · §9
   - **Vũ Đức Anh:** bộ câu thử và đánh giá, `eval/` · `data/DATA_CARD.md` · §5–§7
-  - **Trần Thái Hưng:** thiết kế và chi phí, §3–§4 · §8 · data chạy thử trong `data/` · `cost/`
+  - **Trần Thái Hưng:** thiết kế và chi phí, §3–§4 · §8 · data lịch chạy thử trong `data/` (tách từ bảng giả lập `training-ops`) · `cost/`
 
   | Chặng · mốc | Cả nhóm | Cặp 1 | Cặp 2 |
   |---|---|---|---|
-  | **1 · đến 17:00 T6 (CP1)** | Mỗi người phỏng vấn ≥1 học viên ngoài nhóm về lần gần nhất kẹt khi xem video pre-class → `evidence/interviews/P*.md` · 16:45 đi lại câu chuyện | **Cát Tân:** đọc `codebase/` (`agent.py`, `tools.py`, `ai.py`) + `docs/connect-model.md`, chạy `python run.py` ở chế độ giả để nắm khung trước chặng 3 · **Thái Hưng:** xem 2–3 video Day01–02, tự viết lại thành 10–20 đoạn ngắn có mốc giây (không chép nguyên lời giảng) | **Đức Anh:** đọc `eval/README.md`, `metric_spec.yaml`; hỏi tay 10 câu bằng ChatGPT/Claude với prompt nháp, ghi output để viết tiêu chí · **Nhật Anh:** push repo, nộp CP1, hỏi lab coach nghĩa của `missing_context`, `by = link`, chuẩn bị khung tổng hợp phỏng vấn |
-  | **3 · 17:00–19:30 T6 (CP2)** | 17:00–17:20 tổng hợp phỏng vấn (Nhật Anh dẫn) → chốt lát cắt + sơ đồ · 19:00 đổi chéo review · **19:15 chốt §7 chuẩn "đạt"**, commit trước 19:30 · Nhật Anh nộp CP2 | **Cát Tân + Thái Hưng:** sơ đồ §4 + data chạy thử (Thái Hưng) · `tools.py` `search_lesson` + `agent.py` đi hết luồng với AI giả (Cát Tân) · trước khi rời lớp: lấy API key, `run.py eval --try` | **Đức Anh + Nhật Anh:** §5 ≥6 kịch bản + 2 tấn công · `benchmark.csv` ≥10 câu · `metric_spec.yaml` ≥3 metric · `DATA_CARD.md` (Đức Anh) · canvas + dòng "đã đổi gì" · §1 (Nhật Anh) · hai người chấm độc lập cùng 5 output, ghi `eval/README.md` |
-  | **4 · tối T6 → 10:00 T7 (CP3)** | Sáng T7 30 phút: chốt bằng chứng + impact · chạy `run.py eval` lượt 1 cùng nhau, chấm `pass`, `score` · 09:45 đi lại câu chuyện · Cát Tân quay video 30 giây, Nhật Anh nộp CP3 | **Cát Tân + Đức Anh:** nối model thật `ai.py` + code chặn mốc giây không có trong kết quả công cụ (Cát Tân) · mở rộng 20–30 câu thử: ≥5 `kho`, ≥2 `tu_choi` gồm 2 tấn công, ≥1/3 từ người dùng / data thật (Đức Anh) | **Nhật Anh + Thái Hưng:** `evidence/summary.md`, §0 hiện trạng trợ giảng, bảng impact §2 ≥3 hướng (Nhật Anh) · §3 giải pháp tương tự, `cost/personas.yaml`, `run.py simulate --try` 10 phiên (Thái Hưng) |
+  | **1 · đến 17:00 T6 (CP1)** | Chọn track A, hướng A5 · giả thuyết `evidence/hypothesis.md` (commit **trước** khi hỏi ai) · canvas 7 dòng · bộ câu phỏng vấn `evidence/interviews/GUIDE-A5.md` + khảo sát `evidence/survey/questions.md` | **Cát Tân:** đọc `codebase/` (`agent.py`, `tools.py`, `ai.py`) + `docs/connect-model.md`, chạy `python run.py` ở chế độ giả để nắm khung trước chặng 3 · **Thái Hưng:** đọc `data/training-ops/` (README + 2 file xlsx), ghi lại các kiểu ô lịch: phòng đã chốt, "dự kiến", "chờ xác nhận", online, giờ riêng, nghỉ lễ | **Đức Anh:** đọc `eval/README.md`, `metric_spec.yaml`; hỏi tay 10 câu về phòng / giờ lab bằng ChatGPT/Claude kèm bảng lịch giả lập, ghi output để viết tiêu chí · **Nhật Anh:** push repo, nộp CP1, gửi khảo sát vào nhóm lớp, hỏi lab coach zone ai đang làm key coach / Day Lead để hẹn phỏng vấn |
+  | **3 · 17:00–19:30 T6 (CP2)** | Mỗi người phỏng vấn ≥1 học viên L3 ngoài nhóm về buổi lab gần nhất (`GUIDE-A5.md` → `evidence/interviews/P*.md`) + cố gặp 1–2 lab coach / key coach đang ở lớp · 18:30 tổng hợp phỏng vấn + khảo sát (Nhật Anh dẫn) → chốt người dùng, lát cắt, sơ đồ · 19:00 đổi chéo review · **19:15 chốt §7 chuẩn "đạt"**, commit trước 19:30 · Nhật Anh nộp CP2 | **Cát Tân + Thái Hưng:** sơ đồ §4 + tách bảng lịch giả lập thành data chạy thử trong `data/` (Thái Hưng) · `tools.py` tra buổi theo ngày / lớp + `agent.py` đi hết luồng với AI giả (Cát Tân) · trước khi rời lớp: lấy API key, `run.py eval --try` | **Đức Anh + Nhật Anh:** §5 ≥6 kịch bản + 2 tấn công (phòng chưa chốt, phòng đổi sau khi báo, hai bảng ghi khác nhau, tin giả danh BTC…) · `benchmark.csv` ≥10 câu · `metric_spec.yaml` ≥3 metric · `DATA_CARD.md` (Đức Anh) · canvas dòng 4 (số đầu tiên + 1 trích dẫn) · §1 (Nhật Anh) · hai người chấm độc lập cùng 5 output, ghi `eval/README.md` |
+  | **4 · tối T6 → 10:00 T7 (CP3)** | Sáng T7 30 phút: chốt bằng chứng + impact · chạy `run.py eval` lượt 1 cùng nhau, chấm `pass`, `score` · 09:45 đi lại câu chuyện · Cát Tân quay video 30 giây, Nhật Anh nộp CP3 | **Cát Tân + Đức Anh:** nối model thật `ai.py` + code chặn mã phòng không có trong bảng phân công (Cát Tân) · mở rộng 20–30 câu thử: ≥5 `kho`, ≥2 `tu_choi` gồm 2 tấn công, ≥1/3 từ lời người dùng (phỏng vấn, khảo sát câu 9) / data thật (Đức Anh) | **Nhật Anh + Thái Hưng:** `evidence/summary.md`, §0 ảnh chụp email lịch / danh sách nhóm của chính mình (che thông tin), điền số khảo sát vào bảng impact §2 (Nhật Anh) · §3 giải pháp tương tự, `cost/personas.yaml` (số lần hỏi / tháng từ khảo sát), `run.py simulate --try` 10 phiên (Thái Hưng) |
   | **5 · 10:00–13:00 T7** | 30 phút đọc chung các câu trượt → gom nhóm lỗi → chọn 1 cải tiến · *(bonus)* mỗi người cho 1 người ngoài nhóm dùng thử → `validation/log.md` | **Cát Tân + Đức Anh:** cải tiến → `run.py eval` lượt 2 (Cát Tân) · `eval/report.md` + `eval/README.md` (Đức Anh) | **Nhật Anh + Thái Hưng:** `run.py simulate` ≥50 phiên với tỉ lệ đạt lượt 2 · `cost/cost-estimate.md` 3 kịch bản × 2 model, giá có link + ngày xem (Thái Hưng) · cập nhật số §1–§2, bắt đầu slide (Nhật Anh) |
   | **6 · 13:00–14:30 T7 (CP4)** | Go / iterate / stop · tập demo, mỗi người nói một phần: Nhật Anh (pain + impact) · Thái Hưng (giải pháp + chi phí) · Đức Anh (đánh giá) · Cát Tân (demo live) · 14:15 đi lại câu chuyện · Nhật Anh nộp CP4 | **Cát Tân + Đức Anh:** video demo dự phòng · checklist 5.2 (không có key, không có dữ liệu cá nhân) · §9 | **Nhật Anh + Thái Hưng:** slide 8 trang (`slides/outline.md` → PDF) · §8 |
   | **14:30 → 23:59 T7** | Mỗi người một file `reflection/<ten-khong-dau>.md` · sửa theo góp ý | **Nhật Anh:** ghi changelog §10 cho mọi thay đổi sau 14:30 | |
-- Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
+- Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`): Claude Code đọc đề, đếm hình dạng bộ lịch giả lập `training-ops`, soạn nháp canvas, giả thuyết, spec §0–§2, §10, bộ câu phỏng vấn và khảo sát cho A5. Nhật Anh đọc lại, sửa trước khi commit; số trong bài chỉ lấy từ file có nguồn, không để AI tạo câu trả lời phỏng vấn hay khảo sát.
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)

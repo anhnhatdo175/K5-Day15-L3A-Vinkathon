@@ -1,7 +1,7 @@
 > Đây là khung repo nộp bài. Điền mọi chỗ `____`, giữ nguyên tên các mục. **Mục 0 xoá đi sau khi tạo repo xong.**
 > Giờ, mốc, luật, rubric: xem `README.md`, `02-guide.md`, `03-rubric.md` trong repo đề (bộ đề BTC phát).
 
-# Vinkathon: Trợ giảng dưới video có căn cứ
+# Vinkathon: Trợ lý phòng lab có căn cứ
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
@@ -91,7 +91,8 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
-____
+- **Claude Code:** đọc đề, đếm hình dạng bộ lịch giả lập `data/training-ops/`, soạn nháp canvas, giả thuyết, `spec.md` §0–§2 và §10, bộ câu phỏng vấn và khảo sát cho hướng A5.
+- **Người kiểm:** Nhật Anh đọc lại và sửa trước khi commit. Số trong bài chỉ lấy từ file có nguồn; câu trả lời phỏng vấn, khảo sát do người thật trả lời, không do AI tạo.
 
 ## File mẫu — điền ở bước nào
 
