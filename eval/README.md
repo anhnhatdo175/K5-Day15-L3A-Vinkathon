@@ -66,4 +66,6 @@ Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, k
 
 ## 6. Lỗi chính
 
-Tóm 2–3 dòng từ `eval/report.md`: nhóm lỗi lớn nhất · đã sửa gì · còn lại gì.
+- **Nhóm lỗi lớn nhất: model trích ý sai** ở bước ① (4/26 câu ở lượt 1): điền rác vào trường (B08 `buoi_lab = "mai"` → trợ lý báo "không có buổi lab" trong khi có 2 buổi chờ xác nhận), tự suy ca người dùng không nói (B19, B23 bỏ sót buổi sáng), nhầm "kể phòng đã đổi" với "đòi đổi phòng" (B17 bị từ chối). Đúng kiểu hậu quả trong pain: học viên bỏ buổi hoặc đi nhầm phòng.
+- **Đã sửa:** lượt 2 siết bước trích ý (`buoi_lab` chỉ nhận "LAB n", bỏ ca model tự suy, prompt phân biệt kể / đòi) → B17, B19, B23 đúng, nhưng B08 vẫn trượt và B05 tệ đi (model tự đoán lớp), 92% → 92%. Lượt 3 áp một nguyên tắc: thông tin code đọc chắc được thì không để model đoán (lớp / nhóm chỉ nhận khi có trong chữ người dùng gõ; "mai" / "hôm nay" do code tính) → **26/26, đạt chuẩn §7**; lượt 4 chạy lại không sửa code vẫn 26/26.
+- **Còn lại:** model vẫn đọc ý định và ngày dạng "thứ Năm", và trả lời mỗi lượt một khác; bộ 26 câu nhỏ, nhiều câu tự viết, nên các cách sửa có nguy cơ khớp bộ câu thử hơn khớp cách học viên thật gõ; data lịch là bộ giả lập BTC, danh sách nhóm tự dựng. Chi tiết: `eval/report.md` mục 2–4.
