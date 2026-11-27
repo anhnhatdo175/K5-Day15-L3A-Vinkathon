@@ -198,6 +198,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 | 28/11 ~02:28 (lượt 2) | Sửa bước ① trích ý: chỉ nhận `buoi_lab` dạng "LAB n"; ca chỉ lấy khi người dùng tự nói; prompt phân biệt "kể phòng đã đổi" với "đòi đổi phòng" | nhóm lỗi "model trích ý sai" ở lượt 1: B08, B17, B19, B23 (`eval/report.md` mục 2–3). Lượt 2: sửa được B17, B19, B23; B08 vẫn trượt, B05 tệ đi |
 | 28/11 ~02:32 (lượt 3) | Lớp / nhóm của model chỉ nhận khi có trong chữ người dùng gõ; ngày "mai" / "hôm nay" do code tính, ưu tiên hơn model | lượt 2 còn B08 (model tính "mai" = hôm nay) và B05 (model tự đoán lớp), cùng nhóm lỗi "model trích ý sai". Lượt 3: 26/26 |
 | 28/11 ~03:13 (lượt 4) | Không sửa code; chạy lại cùng bộ câu thử để kiểm độ ổn định | 26/26 lần thứ hai liên tiếp; 17/26 output giống hệt lượt 3 |
+| 28/11 ~03:40 | Thêm nhánh `openrouter` vào `codebase/ai.py` (cùng định dạng OpenAI, chỉ đổi URL); không đổi prompt, luồng, công cụ. Quay video CP3 qua OpenRouter, model `openai/gpt-5.4-nano` | máy quay video chỉ có key OpenRouter; các lượt eval đã chạy giữ nguyên (gọi thẳng OpenAI) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

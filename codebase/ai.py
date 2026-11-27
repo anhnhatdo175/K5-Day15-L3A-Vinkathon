@@ -50,6 +50,7 @@ SHOW_RAW = False   # đổi thành True để in nguyên phản hồi của API 
 
 URL_OPENAI = "https://api.openai.com/v1/chat/completions"
 URL_GEMINI = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"  # Gemini, định dạng OpenAI
+URL_OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"  # OpenRouter, định dạng OpenAI
 URL_CLAUDE = "https://api.anthropic.com/v1/messages"
 URL_OLLAMA = "http://localhost:11434/api/chat"
 
@@ -103,6 +104,8 @@ def call_model(system: str, user: str) -> dict:
         r = call_openai(system, user)
     elif MODEL_PROVIDER == "gemini":
         r = call_openai(system, user, URL_GEMINI)
+    elif MODEL_PROVIDER == "openrouter":
+        r = call_openai(system, user, URL_OPENROUTER)
     elif MODEL_PROVIDER == "anthropic":
         r = call_claude(system, user)
     elif MODEL_PROVIDER == "ollama":
