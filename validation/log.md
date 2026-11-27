@@ -10,6 +10,14 @@
 | | | | | |
 | | | | | |
 
+---
+
+## Blockers & dependencies
+
+| Ngày | Blocker | Chờ ai | Trạng thái |
+|------|---------|--------|-----------|
+| 27/11/2026 19:00 | Chưa thể chấm chung 5 output — cần chốt định nghĩa metric + chọn 5 output cụ thể trước | **Đức Anh** chốt metric_spec + chọn O1–O5 (xem `eval/README.md` mục 3) | 🔴 Đang chờ |
+
 Câu hỏi sau: *"Nếu mai không được dùng nữa, bạn thấy: rất tiếc / hơi tiếc / không sao?"* → __ / __ / __
 
 ## Tổng hợp
