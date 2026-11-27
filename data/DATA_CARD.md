@@ -4,19 +4,31 @@
 > Một trang. Mỗi dataset một mục. Dữ liệu chạy thử (bài mẫu, thông báo mẫu, đoạn transcript…) để trong thư mục `data/` này.
 > Không commit nguyên tài liệu khoá, dữ liệu cá nhân thật hay nguyên file data BTC cấp — chỉ đoạn trích ngắn, bản viết lại, hoặc số đã tổng hợp.
 
-**Bản đầu CP2 (27/11 19:10).** Chỗ còn `__` điền khi Thái Hưng đưa data lịch chạy thử vào `data/` (CP3).
+**Bản đầu CP2 (27/11 19:10) · bản CP3 (28/11 ~02:00):** data lịch đã tách vào `data/` bằng `python data/build_data.py`.
 
 ## Dataset 1 · Bảng lịch lab chạy thử (tách từ bộ giả lập `training-ops`)
 
 | | |
 |---|---|
-| Dùng để làm gì | nguồn cho công cụ `get_schedule`, `find_group`, `check_conflicts` (spec §4) · điền phần `[điền từ data]` trong `eval/benchmark.csv` (phòng, giờ, giờ cập nhật bảng của từng câu) |
-| Từ đâu | data BTC cấp: `data/training-ops/` của repo đề (README + 2 file xlsx) — **giả lập**; nguyên file để ở `data-btc/`, không commit |
-| Xử lý những bước gì | lọc buổi lab của L3A / L3B · tách mỗi ô lịch thành cột: lớp, nhóm, buổi, ngày, phòng, trạng thái (`chot` / `cho_xac_nhan` / `online`), giờ bắt đầu, giờ cập nhật bảng, bảng nguồn (bảng chính thức / bảng lab coach) · giữ các kiểu ô Thái Hưng ghi ở chặng 1: phòng đã chốt, "dự kiến", "chờ xác nhận", online, giờ riêng, nghỉ lễ · ẩn danh: không có tên học viên (script: `__`, Thái Hưng) |
-| Số dòng / số đoạn | __ |
-| Phiên bản / ngày lấy | __ |
+| Dùng để làm gì | nguồn cho công cụ `get_schedule`, `check_conflicts` (spec §4) · giá trị phòng, giờ, giờ cập nhật bảng trong `eval/benchmark.csv` |
+| Từ đâu | data BTC cấp: `data/training-ops/` của repo đề (README + `teaching-schedule.xlsx` + `lab-coach-schedule.xlsx`), **giả lập**. Nguyên file để ở `data-btc/` (đã có trong `.gitignore`), không commit |
+| Xử lý những bước gì | script `data/build_data.py` (chỉ dùng thư viện chuẩn, chạy lại ra cùng kết quả): (1) sheet `Khoá 9 (GĐ1)` cột F (LAB của L3) → `lich_chinh_thuc.csv`: mỗi buổi LAB của L3A / L3B một dòng: ngày, ca, lớp, buổi, giờ bắt đầu–kết thúc (giờ riêng nếu ô có), trạng thái (`chot` / `cho_xac_nhan`), phòng đã chốt hoặc phòng dự kiến, chủ đề, giờ sửa ô lần cuối, giờ xuất bảng (21:00 27/04/2027, ô D1) · (2) `lab-coach-schedule.xlsx` → `lich_lab_coach.csv`: phòng của cùng các buổi trong sheet `Lịch lab 2604-0805` (cột K–P; `dk:` = dự kiến) và bản chép lịch 12/04 · (3) sheet `Lịch sử chỉnh sửa` → `lich_su_sua.csv`: các lần sửa ô LAB của L3 · bỏ tên giảng viên / lab coach, email, link (trợ lý không cần) |
+| Số dòng / số đoạn | `lich_chinh_thuc.csv` 28 buổi LAB (25 `chot`, 3 `cho_xac_nhan`) · `lich_lab_coach.csv` 41 dòng (13 từ lịch lab đợt 2, 28 từ bản chép 12/04) · `lich_su_sua.csv` 18 lần sửa |
+| Phiên bản / ngày lấy | bản xuất bảng phân công 21:00 27/04/2027 (theo data giả lập) · lấy từ repo đề 28/11/2026 |
 | Nhãn | `synthetic` (BTC giả lập) |
-| Giới hạn | giả lập: tần suất phòng đổi / chờ xác nhận trong bảng **không** phản ánh thực tế, không dùng làm bằng chứng pain; mã phòng giả lập không trùng mã phòng thật nghe trong phỏng vấn (A.301, B.205…) |
+| Mốc "hôm nay" khi chạy thử | **Chủ nhật 02/05/2027 tối** (đặt trong code). Bảng vẫn là bản xuất 27/04, nên câu trả lời nêu "theo bảng cập nhật lúc 21:00 27/04". Chọn mốc này vì ngày mai (03/05) L3A có buổi chờ xác nhận, và sau đó có buổi đã chốt của cả hai lớp (05/05, 06/05) |
+| Giới hạn | giả lập: tần suất phòng đổi / chờ xác nhận trong bảng **không** phản ánh thực tế, không dùng làm bằng chứng pain · mã phòng giả lập (C203, H201…) không phải mã phòng nghe trong phỏng vấn (A.301, B.205…) · **data không có buổi LAB online** (chỉ có LEC L3AB online), nên câu thử B10 hỏi về buổi không có lab · L3B không có buổi lab sáng nào |
+
+## Dataset 1b · Danh sách nhóm và quy tắc nhóm → phòng (`data/nhom.csv`), TỰ DỰNG
+
+| | |
+|---|---|
+| Dùng để làm gì | nguồn cho `find_group` (tra nhóm theo số nhóm hoặc tên) và cho việc chọn phòng của một nhóm trong danh sách phòng của buổi |
+| Từ đâu | **nhóm tự sinh**, vì data BTC **không có bảng nhóm → phòng**: mỗi buổi LAB ghi một danh sách 3–6 phòng cho cả lớp (~350 HV, "1 GV/nhóm, phủ mọi phòng lab") |
+| Xử lý những bước gì | `build_data.py`: 12 nhóm / lớp *(tự ước tính)*, mỗi nhóm 4 tên mẫu ghép từ danh sách họ, đệm, tên phổ biến, không trùng nhau, **không phải người thật**. Quy tắc phòng: nhóm *g* ngồi phòng thứ ((*g*−1) mod *k*) + 1 trong danh sách *k* phòng của buổi đó (theo thứ tự ghi trong ô lịch) |
+| Số dòng | 96 (2 lớp × 12 nhóm × 4 tên) |
+| Nhãn | `synthetic` (nhóm tự sinh, không seed ngẫu nhiên: quy tắc cố định) |
+| Giới hạn | quy tắc nhóm → phòng là giả định của nhóm, không lấy từ khoá thật; ngoài đời phải thay bằng danh sách nhóm chính thức |
 
 ## Dataset 2 · Ghi chép phỏng vấn P1–P5 (nguồn câu thử `nguoi_dung`)
 

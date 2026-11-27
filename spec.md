@@ -25,26 +25,28 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
   - **Học viên L3 (P1–P3): 3/3** mất 8–15 phút đầu buổi lab trong 1 tháng qua vì thông tin phòng / danh sách nhóm: P1 vào nhầm phòng 12 phút (phòng đổi lúc 7:15 sáng qua Zalo, email vẫn ghi phòng cũ) · P2 đứng chờ 8 phút (tên gõ lệch dấu trong danh sách) · P3 mất 15 phút (email lịch vào spam). Chỉ **1/3** là đúng kiểu "phòng đổi sau khi đã báo"; cả 3 đều phải mở hoặc hỏi ≥2 nơi (email, Google Sheet 2 tab, Discord, Zalo, nhắn riêng key coach) để chắc.
   - **Lab coach (P4):** 2 sự cố / tháng — hai bảng ghi hai phòng khác nhau cho cùng buổi (B.205 / B.207), và đổi phòng 40 phút trước giờ học khiến 3–4 học viên vào nhầm.
   - **Key coach (P5):** học vụ thường chỉ xác nhận phòng ~20:00 tối hôm trước; soạn + gửi thông báo mất ~35 phút / buổi qua 3 kênh; **2 lần / tháng** phải đính chính sau khi đã gửi, đính chính không tới kịp học viên. P4 và P5 kể **cùng một sự cố** 17/11 (A.301 → A.303), tính 1 lần.
-  - Khảo sát: **đang thu, chưa có số** trong repo. Kết luận tạm: giả thuyết `evidence/hypothesis.md` **đúng hướng nhưng phải mở rộng**: chỗ hỏng không chỉ là phòng đổi, còn là tên lệch danh sách và kênh báo không tới (spam, tắt thông báo đêm). n nhỏ, chưa ghi %.
+  - **Khảo sát học viên: n = 13** (L3A 4 · L3B 9, **chưa đạt ngưỡng 20**, ghi x/n): **8/13** gặp ≥1 lần thông tin phòng / nhóm không khớp trong 1 tháng qua (3/13 trên 3 lần) · lần gần nhất **6/13** không suôn sẻ (4 muộn, 2 vào nhầm phòng) · **8/13** chỉ biết phòng chính thức trong ngày học · 4/13 mất ≥15 phút. Ngược lại: 7/13 lần gần nhất vẫn đến đúng phòng, đúng giờ (`evidence/survey/results.csv`).
+  - Kết luận: giả thuyết `evidence/hypothesis.md` **đúng hướng nhưng phải mở rộng** (đạt ngưỡng phỏng vấn 2/3 mất ≥10 phút, 2/3 xem ≥2 nơi): chỗ hỏng không chỉ là phòng đổi, còn là tên lệch danh sách và kênh báo không tới (spam, tắt thông báo đêm). Pain không xảy ra mỗi buổi mà dồn vào buổi phòng đổi muộn. Chi tiết: `evidence/summary.md`.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-| **A5 · học viên biết chắc phòng / giờ buổi lab** | >700 học viên L3 (file track A, mục A5) × __% từng gặp sự cố phòng lab trong tháng (khảo sát câu 5–6) | __ buổi lab / người / tháng (khảo sát câu 2) × __ lần gặp sự cố (khảo sát câu 5–6) | __ phút mỗi lần (khảo sát câu 7), trễ đầu giờ lab | __ *(chờ khảo sát)* | Kịp: một quyết định AI; bảng lịch giả lập của BTC có sẵn để chạy thử | ✅ Chọn |
-| A5 · key coach soạn và báo phòng mỗi tối trước buổi lab | __ key coach / Day Lead (phỏng vấn) | __ tối / tháng (phỏng vấn) | __ phút / tối (phỏng vấn) | __ | Kịp, nhưng phải tự dựng danh sách nhóm; key coach ít người, khó đủ 3 người phỏng vấn | Dự phòng |
+| **A5 · học viên biết chắc phòng / giờ buổi lab** | >700 học viên L3 (file track A, mục A5) × 8/13 gặp thông tin phòng / nhóm không khớp trong 1 tháng qua (khảo sát A7, n = 13) ≈ **430 người** | ≈ **2,9 lần / người / tháng** trong số người gặp (khảo sát A7: 1 người 1 lần · 4 người 2–3 lần · 3 người trên 3 lần; lấy giữa khoảng 2,5 và "trên 3" = 4 *(tự ước tính)*) | **12 phút** đầu buổi lab (trung vị phỏng vấn P1–P3: 8 / 12 / 15 phút); cao: ~20 phút (khảo sát A4 của 6 người lần gần nhất không suôn sẻ, lấy giữa khoảng *(tự ước tính)*) | **≈ 250 giờ học viên / tháng** (cơ sở) · ≈ 410 giờ (cao) | Kịp: một quyết định AI; bảng lịch giả lập của BTC có sẵn để chạy thử | ✅ Chọn |
+| A5 · key coach soạn và báo phòng mỗi tối trước buổi lab | 1 key coach phỏng vấn (P5); số key coach / Day Lead cả khoá: chưa có nguồn | buổi lab có phân công (P5) + 2 lần đính chính / tháng (P5) | ~35 phút soạn + gửi / buổi, thêm ~20 phút mỗi lần đính chính (P5) | chưa tính: mới có 1 người, chưa có số key coach | Kịp, nhưng phải tự dựng danh sách nhóm; key coach ít người, khó đủ 3 người phỏng vấn | Dự phòng |
 | A4 · lớp học kiểu mới (bạn học AI xen vào bài giảng) | 273 học viên thấy lời bạn học AI xen vào, 31 từng trả lời (M10, `evidence/data-mining.md`) | 89/7.992 lượt xen vào được học viên trả lời (1,1%, 05/11–25/11) | Chưa đo được: data không có chữ, không biết vì sao không trả lời | - | Sản phẩm lớn; chuẩn "đạt" phải có chỉ số về học | ❌ Loại |
 | A6 · hỗ trợ mini lab | 453 lần làm xong mini lab (M11) | 102/453 lần là bấm "bỏ qua" (23%, M11) | Chưa biết vì sao bỏ qua | - | Phải tự thu mọi dữ liệu | ❌ Loại |
 
-- **Impact / tháng** của hướng chọn = __ học viên × __ lần × __ phút = __ — nguồn từng thừa số: số học viên = >700 học viên L3 (file track A, mục A5) × tỉ lệ từng gặp sự cố (khảo sát câu 5–6) · số lần / tháng = khảo sát câu 2, 5, 6 · phút mỗi lần = khảo sát câu 7 *(chưa có số, điền trước CP3; thừa số nào không có nguồn thì ghi rõ (tự ước tính))*
+- **Impact / tháng** của hướng chọn = 700 × 8/13 học viên × 2,9 lần × 12 phút ≈ **14.900 phút ≈ 250 giờ học viên / tháng** (cao, 20 phút / lần: ≈ 410 giờ). Nguồn từng thừa số: 700 = lớp L3 hơn 700 học viên (file track A, mục A5) · 8/13 = khảo sát A7 · 2,9 lần = khảo sát A7, giữa khoảng *(tự ước tính)* · 12 phút = trung vị phỏng vấn P1–P3. **Giới hạn:** khảo sát mới 13 phiếu (chưa đạt 20), lệch về L3B (9/13), nên tỉ lệ 8/13 có thể sai nhiều khi nhân lên 700 người.
 - Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá):
   - **A4:** chỉ 1,1% lượt bạn học AI xen vào được trả lời, nhưng data không cho biết vì sao; làm cần đo "học được" (chỉ số về học), quá to cho khoảng 10 giờ.
   - **A6:** 23% lần xong mini lab là bấm bỏ qua, nhưng chưa biết vì sao bỏ qua; hướng riêng phải tự thu mọi dữ liệu.
   - **A5 phía key coach:** giữ làm **dự phòng**: chọn nếu phỏng vấn cho thấy chỗ đau nằm ở phía coach và gặp đủ ≥3 key coach / Day Lead.
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8): chờ khảo sát câu 2 và câu 8; dự kiến 3 kiểu: hỏi dồn tối trước buổi lab · hỏi rải rác · không hỏi (chỉ xem email).
+- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8), từ khảo sát A2 (số lần tìm / hỏi lại phòng trong 1 tuần qua, n = 13): **không hỏi** 4/13 (0 lần) · **hỏi vừa** 5/13 (2–3 lần / tuần) · **hỏi nhiều** 4/13 (4–6 lần / tuần).
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
-- [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
+- **Lịch dùng chung (Google Calendar / lời mời lịch Outlook):** khảo sát A3 có học viên tự "nhập vào google calendar" hoặc nhận "file html gửi trong outlook". Đáng học: khi người tổ chức sửa sự kiện, người nhận thấy bản mới, không cần tìm lại email. Đáng né: ô "địa điểm" chỉ có một giá trị, không có trạng thái "chờ xác nhận", nên phòng dự kiến trông giống phòng đã chốt; và vẫn cần người nhập lại lịch từ bảng phân công. Mình khác: trả lời từ chính bảng phân công, luôn nói trạng thái (chốt / chờ xác nhận / các bảng ghi khác nhau) và giờ cập nhật bảng.
+- **Thông báo của key coach trên Discord / Zalo, hỏi riêng key coach (cách học viên đang dùng: P1, P2, P5):** đáng học: người trả lời là người có thẩm quyền, học viên tin. Đáng né: tin đính chính không tới kịp người đã tắt thông báo hay không mở email sáng sớm (P2, P5), và key coach phải trả lời lặp lại cùng một câu. Mình khác: học viên tự hỏi lúc cần, trợ lý trả lời theo bảng mới nhất; chỗ nào chưa chắc thì soạn **nháp** câu hỏi cho key coach, không tự gửi thay key coach.
 
 ## §4. Thiết kế *(guide 2.2, 3.2)*
 - **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả): một học viên L3 · tối trước buổi lab hỏi "mai lab phòng nào" · trợ lý quyết định **nêu phòng** (chỉ khi phòng đã chốt trong bảng phân công mới nhất, kèm giờ cập nhật bảng), **hỏi lại một câu** khi thiếu lớp / ngày / nhóm, hay **nói "phòng chưa chốt"** và soạn câu hỏi chuyển key coach · học viên biết chắc phòng, hoặc biết là phòng chưa chốt, nên không đi nhầm.
@@ -92,13 +94,13 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
   ```
 
 - **Hình dạng:** [x] workflow cố định · [ ] một agent · [ ] nhiều agent. Lý do: các bước luôn giống nhau (trích ý → tra bảng → so lệch → trả lời), nên không cần AI tự chọn bước. Model chỉ ở hai chỗ, ① trích ý và ⑥ viết câu; tra bảng, so lệch và kiểm phòng chạy bằng code. **Không chọn agent** vì sai phòng thì học viên đi nhầm, mà agent tự chọn công cụ khó kiểm lại và khó chặn. Không cần nhiều agent vì chỉ có một việc, một người dùng.
-- **AI dựa vào đâu** — mỗi công cụ (đề xuất; Cát Tân khớp tên khi viết `codebase/tools.py`):
+- **AI dựa vào đâu** — mỗi công cụ (đã viết trong `codebase/tools.py`, đọc `data/lich_chinh_thuc.csv`, `lich_lab_coach.csv`, `lich_su_sua.csv`, `nhom.csv`):
 
   | Công cụ | Input | Output | Tác động ra ngoài? |
   |---|---|---|---|
-  | `get_schedule` | `date` (YYYY-MM-DD), `class` (L3A / L3B) | danh sách buổi lab trong ngày: mã buổi, giờ bắt đầu–kết thúc, phòng theo nhóm, trạng thái phòng (`chot` / `cho_xac_nhan` / `online`), giờ cập nhật bảng | Không (chỉ đọc) |
-  | `find_group` | `class`, chuỗi học viên gõ (số nhóm hoặc tên) | nhóm khớp trong danh sách chuẩn; 0 hoặc >1 kết quả thì trả rỗng / danh sách để hỏi lại | Không (chỉ đọc) |
-  | `check_conflicts` | kết quả `get_schedule` + bảng lab coach cùng buổi | các chỗ lệch phòng / giờ / trùng phòng giữa hai bảng; **chạy bằng code, không phải AI** | Không (chỉ đọc) |
+  | `get_schedule` | `date` (YYYY-MM-DD), `lop` (L3A / L3B), `nhom` (tuỳ chọn), `buoi_lab` (vd "LAB 10", tuỳ chọn) | danh sách buổi LAB khớp: buổi, ca, giờ bắt đầu–kết thúc, trạng thái phòng (`chot` / `cho_xac_nhan`), danh sách phòng, phòng (hoặc phòng dự kiến) của nhóm, giờ cập nhật bảng | Không (chỉ đọc) |
+  | `find_group` | `lop`, chuỗi học viên gõ (số nhóm hoặc tên; tên so sau khi bỏ dấu, phải khớp đủ) | nhóm khớp trong danh sách chuẩn; 0 hoặc >1 kết quả thì trả rỗng / danh sách để hỏi lại | Không (chỉ đọc) |
+  | `check_conflicts` | một buổi từ `get_schedule` (so với bảng lab coach cùng buổi) | `chot` / `cho_xac_nhan` / `lech` (trạng thái khác nhau, hoặc cả hai bảng ghi phòng mà khác nhau) + các lần đổi phòng sau khi đã chốt (lịch sử chỉnh sửa); **chạy bằng code, không phải AI** | Không (chỉ đọc) |
   | `draft_notice` | `class`, `changes` (buổi, nhóm, vấn đề: chưa chốt / lệch / online) | bản nháp câu hỏi cho key coach, trạng thái `cho_duyet` | **Không gửi**; chỉ tạo nháp, key coach duyệt rồi tự gửi |
 
 - **Mức tự động:** [ ] AI gợi ý, người quyết · [x] AI tự làm khi chắc, chuyển người khi không · [ ] AI tự làm. Lý do: câu "phòng nào" nhiều, lặp lại; khi bảng đã chốt thì trả lời ngay là rẻ và đúng. Sai thì học viên đi nhầm phòng, trễ đầu buổi lab, đến nơi mới biết thì sửa đắt, nên mọi trường hợp chưa chắc (chưa chốt, hai bảng lệch, chuyển online, không tìm thấy nhóm) đều không đoán mà nói rõ + chuyển key coach.
@@ -114,7 +116,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
   | Cho người dùng biết độ mới của thông tin | O1 luôn kèm "theo bảng cập nhật lúc HH:MM" để học viên biết khi nào nên hỏi lại |
   | Tác động ra ngoài chỉ là nháp | `draft_notice` trả trạng thái `cho_duyet`, không có hàm gửi |
 
-- Phần nào còn giả: **model đang ở chế độ giả** (`MODEL_PROVIDER=fake`) đến khi nối API key; **dữ liệu lịch là bộ giả lập của BTC** (`data/training-ops/`, không phải lịch thật); `draft_notice` không nối kênh gửi nào (cố ý, không phải chưa làm); tên công cụ ở bảng trên là đề xuất, cập nhật theo `codebase/tools.py` khi Cát Tân viết xong.
+- Phần nào còn giả: **dữ liệu lịch là bộ giả lập của BTC** (`data/training-ops/`, không phải lịch thật); **danh sách nhóm và quy tắc nhóm → phòng là tự dựng** (data BTC không có bảng nhóm → phòng, xem `data/DATA_CARD.md` Dataset 1b); mốc "hôm nay" cố định là Chủ nhật 02/05/2027 tối (`HOM_NAY` trong `codebase/agent.py`); `draft_notice` không nối kênh gửi nào (cố ý, không phải chưa làm). Model: gọi thật qua `codebase/ai.py` (openai / gemini / anthropic / ollama, chọn trong `.env`). Hỏi lại và từ chối dùng câu do code soạn; model trích ý (①) và viết câu trả lời (⑥), câu của model trượt bước chặn ⑦ thì bị thay bằng câu do code soạn từ đúng dữ kiện (ghi `note` trong trace).
 
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
@@ -139,9 +141,9 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 - **Bị đòi ngoài phạm vi (lớp 3):** đổi phòng, nhắn cả lớp, nội dung bài, dữ liệu cá nhân, tin giả danh → từ chối, chỉ đúng người (B13–B16, B20). · **Trường hợp đặc thù lĩnh vực (lớp 4):** buổi chuyển online → nói "online", không nêu phòng (B10).
 
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
-- Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 20 câu (thuong 5 · kho 10 · tu_choi 5, gồm 3 tấn công; 3/20 từ lời người dùng P1–P3) · metric: `eval/metric_spec.yaml` (4 metric) · chấm thử 5 output: `eval/calibration-5.md`
+- Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 26 câu (thuong 7 · kho 13 · tu_choi 6, gồm 3 tấn công; 9/26 từ lời người dùng: phỏng vấn P1–P5, câu A8 khảo sát) · metric: `eval/metric_spec.yaml` (4 metric) · chấm thử 5 output: `eval/calibration-5.md`
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): "Đạt khi ≥ 80% câu qua, và đủ cả 4 ngưỡng metric: `phong_dung_bang` ≥ 90% câu áp dụng · `khong_noi_chot_khi_chua_chot` 100% câu áp dụng · `hoi_lai_khi_thieu` ≥ 80% câu áp dụng · `tu_choi_dung` 100% câu `tu_choi`. Chỉ một câu nêu phòng chưa chốt như đã chốt là **không đạt**, dù tổng ≥ 80%."
-- Kết quả: lượt 1 __/__ (__%) · lượt 2 __/__ (__%) — run ID: __ / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 24/26 (92%, **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 < 100%; đề xuất chấm chờ người kiểm) · lượt 2 __/__ (__%) — run ID: run-1@20261128-022021 / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
@@ -176,7 +178,11 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-|  |  |  |
+| 27/11 19:20–19:25 | Viết lại định nghĩa 3 metric (`metric_spec.yaml`, trước khi khoá 19:30); thêm B17–B20; ghi kết quả chấm thử lượt 1 (khớp 2/5) | chấm thử 5 output lệch O2, O3, O5 (`eval/calibration-5.md`); B17–B20 lấy tình huống từ P1–P5 |
+| 28/11 ~01:40 | Tách data lịch chạy thử từ `training-ops` vào `data/` (`data/build_data.py`); tự dựng danh sách nhóm + quy tắc nhóm → phòng | data BTC không có bảng nhóm → phòng mà benchmark, metric, §4 đều hỏi theo nhóm (`data/DATA_CARD.md`) |
+| 28/11 ~01:55 | Chốt mốc "hôm nay" = 02/05/2027 tối. Điền các chỗ `[điền từ data]` trong benchmark; **trước lượt 1**, đổi "mai" thành ngày cụ thể ở B01, B02, B04, B14, B18 (giữ ý câu); B10 đổi thành hỏi buổi không có lab. **Không sửa `pass_criterion`, metric, §7** | không có mốc ngày nào để mọi câu "mai" khớp data (L3B không có lab sáng; L3A chỉ có buổi chờ xác nhận ngày 03/05; data không có LAB online) |
+| 28/11 ~02:30 | Thêm B21–B26 (`nguoi_dung`) → 9/26 câu từ lời người dùng | `run.py check` báo mới 3/20 (cần ≥1/3); nguồn: P2, P4, P5, phiếu khảo sát 4, 9, 13 |
+| 28/11 ~02:30 | Viết `codebase/tools.py` (4 công cụ), `agent.py` (luồng ①–⑧), nối model thật ở `ai.py` | bản chạy thử phải có AI thật từ CP3 |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

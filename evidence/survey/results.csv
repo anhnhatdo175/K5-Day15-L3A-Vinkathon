@@ -1,0 +1,14 @@
+﻿phieu,"0. Trong khoá, bạn là:",A1. Lần gần nhất bạn phải đi tìm xem buổi học / buổi lab của mình ở phòng nào là khi nào?,"A2. Trong 1 tuần qua, bạn phải tìm hoặc hỏi lại phòng học / nhóm của mình mấy lần?","A3. Lần gần nhất đó, bạn biết phòng bằng cách nào?","A4. Lần đó, từ lúc bắt đầu tìm đến lúc biết chắc phòng mất khoảng bao lâu?",A5. Lần đó bạn biết phòng chính thức của mình trước giờ học là bao lâu?,A6. Lần đó kết quả thế nào?,"A7. Trong 1 tháng qua, bạn gặp bao nhiêu lần thông tin phòng / nhóm không khớp nhau (hai nơi ghi hai phòng khác nhau, phòng đổi sau khi đã báo, tên mình không có hoặc sai trong danh sách nhóm)?","A8. Kể lại lần gần nhất bạn bị thiếu hoặc nhầm thông tin phòng / nhóm: chuyện gì xảy ra, bạn đã làm gì?"
+1,Học viên L3A,Hôm nay,0,Email lịch học,5–15 phút,Trong vòng 1 giờ trước giờ học,Đúng phòng nhưng muộn,Trên 3 lần,
+2,Học viên L3B,Hôm nay,0,Email lịch học,Dưới 5 phút,Từ hôm trước,"Đến đúng phòng, đúng giờ",0,
+3,Học viên L3A,Hôm nay,5,"Email lịch học, Hỏi bạn cùng lớp",15–30 phút,Trong vòng 1 giờ trước giờ học,Đúng phòng nhưng muộn,2–3 lần,
+4,Học viên L3A,Hôm nay,3,"Email lịch học, Nhóm Zalo / Discord của lớp, Hỏi bạn cùng lớp, Hỏi lab coach / TA",5–15 phút,Đến nơi mới biết,Vào nhầm phòng rồi phải đi tiếp,2–3 lần,mình phải hỏi thông tin các bạn cùng nhóm lớp và chuyển qua các lớp đó ngồi cùng vì không có ai giảng dạy
+5,Học viên L3B,Trong tuần này,2,Email lịch học,Dưới 5 phút,Trong vòng 1 giờ trước giờ học,"Đến đúng phòng, đúng giờ",0,không có
+6,Học viên L3B,Hôm nay,0,Email lịch học,Dưới 5 phút,Từ hôm trước,"Đến đúng phòng, đúng giờ",0,
+7,Học viên L3B,Hôm nay,5,"Email lịch học, Nhóm Zalo / Discord của lớp, file html gửi trong outlook",5–15 phút,Đến nơi mới biết,Đúng phòng nhưng muộn,2–3 lần,Tôi đã bỏ cuộc
+8,Học viên L3B,Hôm nay,3,Email lịch học,Dưới 5 phút,Từ hôm trước,"Đến đúng phòng, đúng giờ",0,
+9,Học viên L3B,Hôm nay,6,Email lịch học,Dưới 5 phút,Trong vòng 1 giờ trước giờ học,"Đến đúng phòng, đúng giờ",1 lần,Mình thấy phòng trống quá nên kiểm tra lại file TKB
+10,Học viên L3A,Trong tuần này,2,"Email lịch học, Nhóm Zalo / Discord của lớp, Hỏi lab coach / TA",Trên 30 phút,Trong vòng 1 giờ trước giờ học,Vào nhầm phòng rồi phải đi tiếp,Trên 3 lần,
+11,Học viên L3B,Trong tuần này,2,"Link danh sách nhóm, Hỏi lab coach / TA, Bảng thông báo tại chỗ",15–30 phút,Từ hôm trước,"Đến đúng phòng, đúng giờ",2–3 lần,
+12,Học viên L3B,Tuần trước,4,"Link danh sách nhóm, Nhóm Zalo / Discord của lớp, Hỏi bạn cùng lớp, Hỏi lab coach / TA",Trên 30 phút,Sáng hôm đó,Đúng phòng nhưng muộn,Trên 3 lần,
+13,Học viên L3B,Hôm nay,0,"Email lịch học, nhập vào google calendar",Dưới 5 phút,Từ hôm trước,"Đến đúng phòng, đúng giờ",0,"không có, chỉ có chưa biết tòa nào ở đâu, biết rồi thì không có vấn đề gì"

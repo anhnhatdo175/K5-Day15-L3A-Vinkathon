@@ -3,9 +3,10 @@
 > Bộ câu chép sang Google Form. Hỏi **hành vi đã xảy ra** (lần gần nhất, 1 tuần / 1 tháng qua), không hỏi "có thích / có cần công cụ không", không giới thiệu giải pháp.
 > Ngưỡng: **≥20 người ngoài nhóm, đúng người dùng**. Không thu tên, email, mã học viên (trừ câu cuối nếu người trả lời tự để lại).
 
-- Kênh đã gửi: __
-- Giờ mở form: __ · giờ chốt: __
-- Số người trả lời: __ (học viên __ · lab coach / TA / giảng viên __ · key coach / Day Lead / ban đào tạo __)
+- Kênh đã gửi: __ *(nhóm điền: nhóm lớp nào, link)*
+- Giờ mở form: __ · phiếu đầu 17:54, phiếu cuối 18:40 ngày 27/11/2026 (dấu thời gian trong bản xuất) · giờ chốt: bản xuất dùng cho CP3 (28/11)
+- Số người trả lời: **13** (học viên **13**: L3A 4 · L3B 9 · lab coach / TA / giảng viên **0** · key coach / Day Lead / ban đào tạo **0**). Chưa đạt ngưỡng 20.
+- Kết quả đã ẩn danh: `results.csv` (bỏ dấu thời gian và cột liên hệ D1; bản gốc có 1 số điện thoại ở D1, để ngoài repo ở `data-btc/`, không commit).
 
 ## Cách dựng trên Google Form
 

@@ -5,14 +5,14 @@
 
 ## 1. Dataset → xử lý
 
-Từ `data/DATA_CARD.md`: (1) bảng lịch lab chạy thử tách từ bộ giả lập `training-ops` của BTC (`synthetic`), tách mỗi ô lịch thành lớp · nhóm · ngày · phòng · trạng thái · giờ cập nhật — nguồn cho công cụ và đáp án câu thử, **chưa có trong `data/` lúc CP2**; (2) ghi chép phỏng vấn P1–P5 (thật, ẩn danh theo vai) — nguồn của 3 câu thử `nguoi_dung`; (3) bảng mẫu 3 dòng tự dựng chỉ để chấm thử 5 output.
+Từ `data/DATA_CARD.md`: (1) bảng lịch lab chạy thử tách từ bộ giả lập `training-ops` của BTC (`synthetic`), tách mỗi ô lịch thành lớp · nhóm · ngày · phòng · trạng thái · giờ cập nhật — nguồn cho công cụ và đáp án câu thử, đã tách vào `data/` lúc CP3 (`data/build_data.py`), kèm danh sách nhóm tự dựng; (2) ghi chép phỏng vấn P1–P5 (thật, ẩn danh theo vai) — nguồn của các câu thử `nguoi_dung` (cùng câu A8 khảo sát); (3) bảng mẫu 3 dòng tự dựng chỉ để chấm thử 5 output.
 
 ## 2. Bộ câu thử dựng ra sao
 
-- `eval/benchmark.csv`: 20 câu (thuong 5 · kho 10 · tu_choi 5, trong đó 3 câu tấn công: B14 giả danh key coach + chèn lệnh, B15 đòi dữ liệu cá nhân, B20 dán tin giả danh BTC)
-- Nguồn (`python run.py check` in sẵn): nguoi_dung 3 · data_that 0 · tu_viet 17 · sinh_seed 0 → từ người dùng / data thật 3/20 (cần ≥1/3 ở CP3 → thêm câu từ khảo sát câu 9 và phỏng vấn)
+- `eval/benchmark.csv`: 26 câu (thuong 7 · kho 13 · tu_choi 6, trong đó 3 câu tấn công: B14 giả danh key coach + chèn lệnh, B15 đòi dữ liệu cá nhân, B20 dán tin giả danh BTC). Mốc "hôm nay" khi chạy: Chủ nhật 02/05/2027 tối (`data/DATA_CARD.md`)
+- Nguồn (`python run.py check` in sẵn): nguoi_dung 9 · data_that 0 · tu_viet 17 · sinh_seed 0 → từ người dùng / data thật **9/26** (đạt ≥1/3). B21–B26 thêm lúc CP3 từ P2, P4, P5 và câu A8 của phiếu khảo sát 4, 9, 13
 - Độ phủ — lưới input 4 chiều (guide 2.4 bước 5): **trạng thái phòng** (chốt · chờ xác nhận · online · hai bảng lệch · đã đổi sau khi báo · không có buổi) × **độ đủ câu hỏi** (đủ · thiếu lớp/nhóm · thiếu ngày · tên lệch danh sách) × **ý định** (hỏi phòng · đòi hành động · ngoài phạm vi · tấn công) × **lớp** (L3A · L3B)
-- Câu `kho` trỏ về 4 lớp chỗ khó (`spec.md` §5): lớp 1: B08, B09, B11, B12, B17, B19 · lớp 2: B05, B06, B07 · lớp 3: (nằm ở `tu_choi`: B13, B16) · lớp 4: B10
+- Câu `kho` trỏ về 4 lớp chỗ khó (`spec.md` §5): lớp 1: B08, B09, B11, B12, B17, B19, B22, B23, B25 · lớp 2: B05, B06, B07 · lớp 3: (nằm ở `tu_choi`: B13, B16, B26) · lớp 4: B10 (data không có LAB online → hỏi buổi không có lab)
 
 ## 3. Metric và cách chấm
 

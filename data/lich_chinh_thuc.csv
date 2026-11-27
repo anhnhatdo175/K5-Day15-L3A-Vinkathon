@@ -1,0 +1,29 @@
+ngay,ca,lop,buoi_lab,gio_bat_dau,gio_ket_thuc,trang_thai,phong,phong_du_kien,chu_de,o_sua_lan_cuoi,bang_cap_nhat,o
+2027-04-16,sang,L3A,LAB 1,09:00,13:00,chot,F307;G104;H201,,Intro AI20K & AI/LLM Foundation,,2027-04-27 21:00,F8
+2027-04-16,chieu,L3B,LAB 1,14:00,18:00,chot,E403;F307;G104;H104,,Intro AI20K & AI/LLM Foundation,,2027-04-27 21:00,F9
+2027-04-17,sang,L3A,LAB 2,09:00,13:00,chot,C104;C304;E305;H201;H202,,Discovery & Problem Framing,,2027-04-27 21:00,F10
+2027-04-17,chieu,L3B,LAB 2,16:30,20:00,chot,C201;C203;G104,,Discovery & Problem Framing,,2027-04-27 21:00,F11
+2027-04-19,sang,L3A,LAB 3,09:00,13:00,chot,C102;C304;C305;C402;E403;H202,,"Prompt, Function Calling & Tool Design (MCP)",2027-04-16 20:18,2027-04-27 21:00,F12
+2027-04-19,chieu,L3B,LAB 3,16:30,20:00,chot,C104;C302;C305;C402;H201;H202,,"Prompt, Function Calling & Tool Design (MCP)",2027-04-19 14:44,2027-04-27 21:00,F13
+2027-04-20,sang,L3A,LAB 4,09:00,13:00,chot,C201;C204;E305;H201,,ReAct & Agent Loop,2027-04-17 22:32,2027-04-27 21:00,F14
+2027-04-20,chieu,L3B,LAB 4,14:00,18:00,chot,C104;C301;C304;C402;E303;E305,,ReAct & Agent Loop,2027-04-19 19:27,2027-04-27 21:00,F15
+2027-04-21,chieu,L3B,LAB 5,14:00,18:00,chot,C201;C203;C305;C402;E303;E305,,AI Requirements & UX,2027-04-21 13:15,2027-04-27 21:00,F17
+2027-04-22,sang,L3A,LAB 5,09:00,13:00,chot,C104;C203;E402;E403,,AI Requirements & UX,2027-04-20 16:56,2027-04-27 21:00,F18
+2027-04-22,chieu,L3B,LAB 6,14:00,18:00,chot,C204;E403;H201,,"Data Engineering: Ingestion, Storage & Management & Data for Agents",2027-04-21 22:59,2027-04-27 21:00,F19
+2027-04-23,sang,L3A,LAB 6,09:00,13:00,chot,C305;E305;E402;H202,,"Data Engineering: Ingestion, Storage & Management & Data for Agents",2027-04-22 13:40,2027-04-27 21:00,F20
+2027-04-23,chieu,L3B,LAB 7,16:30,20:00,chot,C104;C305;E305;H201,,"Retrieval & Context Engineering: RAG, MCP, Skills, Memory",2027-04-21 20:54,2027-04-27 21:00,F21
+2027-04-24,sang,L3A,LAB 7,09:00,13:00,chot,G104;H104;H202,,"Retrieval & Context Engineering: RAG, MCP, Skills, Memory",2027-04-21 20:44,2027-04-27 21:00,F22
+2027-04-24,chieu,L3B,LAB 8,16:30,20:00,chot,C301;C304;G104;H202,,"From Workflows to Agents: Multi-Agent, Deterministic to Agentic",2027-04-23 20:56,2027-04-27 21:00,F23
+2027-04-26,sang,L3A,LAB 8,09:00,13:00,chot,C301;C305;H104;H202,,"From Workflows to Agents: Multi-Agent, Deterministic to Agentic",2027-04-26 08:42,2027-04-27 21:00,F24
+2027-04-26,chieu,L3B,LAB 9,14:00,18:00,chot,C201;C203;C302,,Evaluation and Failure Analysis,,2027-04-27 21:00,F25
+2027-04-27,sang,L3A,LAB 9,09:00,13:00,chot,C203;C402;E303;H201,,Evaluation and Failure Analysis,2027-04-26 13:42,2027-04-27 21:00,F26
+2027-04-27,chieu,L3A,LAB 10,16:30,20:00,chot,C302;F307;H202,,Project Delivery — From PoC to Pilot (Gate 1),2027-04-26 19:47,2027-04-27 21:00,F27
+2027-04-28,chieu,L3B,LAB 10,14:00,18:00,chot,C104;C203;C302;E303;H104;H201,,Project Delivery — From PoC to Pilot (Gate 1),2027-04-26 22:30,2027-04-27 21:00,F29
+2027-04-29,chieu,L3B,LAB 11,14:00,18:00,chot,C304;C305;E402;H104;H201,,"Guardrails, HITL & Responsible AI",,2027-04-27 21:00,F31
+2027-05-03,sang,L3A,LAB 11,09:00,13:00,cho_xac_nhan,,,"Guardrails, HITL & Responsible AI",,2027-04-27 21:00,F36
+2027-05-03,chieu,L3A,LAB 12,14:00,18:00,cho_xac_nhan,,C104;C201;C203;C301;G104;H201,"AI SDLC: Coding Agent, Harness Engineering, Software Processes, Software Factory",,2027-04-27 21:00,F37
+2027-05-04,chieu,L3B,LAB 12,14:00,18:00,chot,C201;E402;H104;H201,,"AI SDLC: Coding Agent, Harness Engineering, Software Processes, Software Factory",,2027-04-27 21:00,F39
+2027-05-05,sang,L3A,LAB 13,09:00,13:00,chot,C204;C304;E303;E305;E402,,Launch & Economics,,2027-04-27 21:00,F40
+2027-05-05,chieu,L3B,LAB 13,14:00,18:00,cho_xac_nhan,,C104;C402;E305;E402;G104;H201,Launch & Economics,,2027-04-27 21:00,F41
+2027-05-06,sang,L3A,LAB 14,09:00,13:00,chot,C104;C203;C204;C301;F307;G104,,"Deployment, Agent Benchmarking and Observability: Monitoring, Tracking, etc.",,2027-04-27 21:00,F42
+2027-05-06,chieu,L3B,LAB 14,14:00,18:00,chot,C203;E303;H201,,"Deployment, Agent Benchmarking and Observability: Monitoring, Tracking, etc.",,2027-04-27 21:00,F43

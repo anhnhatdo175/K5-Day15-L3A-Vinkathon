@@ -8,7 +8,7 @@
 
 | Lượt | Run ID | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" |
 |---|---|---|---|---|---|---|---|
-| 1 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
+| 1 | run-1@20261128-022021 | 24/26 *(đề xuất chấm, chờ người kiểm: `eval/cham-run-1-de-xuat.csv`)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (cần 100%) · `phong_dung_bang` 9/10 = 90% (đạt, sát ngưỡng) · `hoi_lai_khi_thieu` 3/3 · `tu_choi_dung` 6/6 |
 | 2 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
 
 Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`.
@@ -17,17 +17,17 @@ Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-
 
 | Nhóm lỗi | Số câu | Câu |
 |---|---|---|
-| vd: bịa nguồn *(ví dụ)* | | |
-| vd: đoán khi thiếu thông tin *(ví dụ)* | | |
-| | | |
+| **Model trích ý sai làm mất buổi** (điền rác vào `buoi_lab`, tự suy ca khi người dùng không nói) | 1 trượt + 2 đạt-có-ghi-chú | B08 (trượt: `buoi_lab = "mai"` → báo "không có buổi"); B19, B23 (chỉ nêu buổi chiều, bỏ sót LAB 11 sáng vì model đặt `ca = chieu`) |
+| **Nhầm "kể" với "đòi"** (người dùng kể phòng đã đổi, model xếp ý định `doi_phong` → từ chối) | 1 | B17 |
+| Câu trả lời bỏ ngày / ca của câu hỏi (vẫn đạt metric) | 2 | B10, B12 |
 
 **≥3 lỗi cụ thể:**
 
 | Câu | Input | Output | Vì sao sai |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
+| B08 | "L3A nhóm 2 mai lab phòng nào?" | "Bảng phân công không có buổi lab nào của L3A, nên mình không có phòng nào để báo." | Mai (03/05) L3A có 2 buổi đều chờ xác nhận. Trace: model trích `buoi_lab: "mai"`, code dùng nguyên giá trị đó để lọc → rỗng → nhánh "không có buổi"; không gọi `draft_notice`. Học viên nghe "không có lab" thì có thể không đi học |
+| B17 | "Tối qua email báo L3A nhóm 2 buổi LAB 5 (22/04) học phòng C301, sáng nay bạn trong nhóm nhắn Zalo là đổi phòng rồi. Giờ phòng nào mới đúng?" | "Mình không đổi hay chốt phòng được, và cũng không nhắn tin hay soạn thông báo cho cả lớp…" | Người dùng hỏi phòng, chỉ KỂ là phòng đã đổi. Model xếp `y_dinh = doi_phong` → nhánh từ chối; không nêu phòng đúng C203 |
+| B19 | "Giờ này chưa thấy key coach báo phòng, mai L3A nhóm 6 lab ở đâu?" | chỉ nêu "Buổi LAB 12 chiều … phòng dự kiến H201 …" | Người dùng không nói ca, model tự đặt `ca = chieu` → bỏ sót LAB 11 sáng 03/05 (cũng chờ xác nhận). Đạt metric nhưng thiếu một buổi so với expected |
 
 ## 3. Một lần cải tiến
 

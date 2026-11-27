@@ -10,27 +10,27 @@ seed: 42            # giữ cố định để chạy lại ra cùng chuỗi phi
 
 users:              # số người dùng thật nếu đưa vào dùng — 3 kịch bản, ở quy mô thật của sản phẩm
                     # track A: khoá học · track B–F: người dùng của sản phẩm / nhóm nhắm tới, nguồn công khai có link
-  low: 300
+  low: 430
   base: 700
   high: 1000
-  source: "(ví dụ) track A — thay bằng số của nhóm. Cơ sở: lớp L3 hơn 700 học viên (README hackathon); thấp, cao: (tự ước tính)"
+  source: "Cơ sở: lớp L3 hơn 700 học viên (file track A, mục A5). Thấp: 700 × 8/13 học viên gặp thông tin phòng không khớp trong 1 tháng (khảo sát A7, n = 13). Cao: 1000 (tự ước tính, nếu mở cho cả L2)"
 
 personas:           # ≥3 kiểu người dùng; share cộng lại = 1
   - name: dung_it
-    share: 0.5              # tỉ lệ người dùng kiểu này
-    uses_per_month: 4       # số phiên / người / tháng
-    turns_per_session: 1    # số lượt hỏi trong một phiên
-    source: "(ví dụ) phỏng vấn P1, P3 — thay bằng nguồn của nhóm"
+    share: 0.31             # 4/13 học viên: 0 lần tìm / hỏi lại phòng trong 1 tuần qua (khảo sát A2)
+    uses_per_month: 1
+    turns_per_session: 1
+    source: "share: khảo sát A2 (4/13 trả lời 0 lần / tuần). uses_per_month = 1 (tự ước tính: chỉ hỏi khi nghe phòng đổi)"
   - name: dung_vua
-    share: 0.3
+    share: 0.38             # 5/13 học viên: 2–3 lần / tuần (khảo sát A2)
     uses_per_month: 10
-    turns_per_session: 3
-    source: "(ví dụ) khảo sát n = 24, câu 3"
+    turns_per_session: 2
+    source: "share + số lần: khảo sát A2 (5/13 trả lời 2–3 lần / tuần, ≈ 2,5 × 4 tuần = 10). turns_per_session = 2 (tự ước tính: một lượt hỏi lại khi thiếu lớp / nhóm)"
   - name: dung_nhieu
-    share: 0.2
+    share: 0.31             # 4/13 học viên: 4–6 lần / tuần (khảo sát A2)
     uses_per_month: 20
-    turns_per_session: 5
-    source: "(ví dụ) data/preclass: đếm số lượt / người — cách đếm ở evidence/data-mining.md"
+    turns_per_session: 2
+    source: "share + số lần: khảo sát A2 (4/13 trả lời 4–6 lần / tuần, ≈ 5 × 4 tuần = 20). turns_per_session = 2 (tự ước tính)"
 # Mỗi lượt hỏi lấy ngẫu nhiên một đầu vào trong eval/benchmark.csv (type thuong và kho).
 # Persona hỏi kiểu riêng: thêm vào persona đó
 #     types: [thuong, kho, tu_choi]
