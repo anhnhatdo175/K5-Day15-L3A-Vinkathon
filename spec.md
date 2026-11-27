@@ -146,10 +146,10 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/trai
 - Kết quả: lượt 1 24/26 (92%, **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 < 100%; `python run.py score eval/run-1.csv`; B19, B23 chờ nhóm xem lại) · lượt 2 24/26 (92%, **chưa đạt**: `khong_noi_chot` 7/8 B08, `hoi_lai_khi_thieu` 2/3 B05) · lượt 3 (thêm) 26/26 (100%, **đạt** cả 4 ngưỡng) — run ID: run-1@20261128-022021 / run-2@20261128-022855 / run-3@20261128-023240 → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao:
+- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-1.csv` (50 phiên, 0 lỗi, seed 42)
+- Chi phí / task thành công: $0.00062 (gpt-5.4-nano, tỉ lệ đạt lượt 3) · $0.00067 (cùng model, tỉ lệ đạt lượt 2) · model thứ hai: chưa có giá có nguồn
+- Chi phí / tháng ở quy mô thật (gpt-5.4-nano): thấp $3.29 (430 người) · cơ sở $5.35 (700) · cao $7.64 (1.000) → chi tiết `cost/cost-estimate.md`
+- So với impact / người / tháng (§2): ~21 phút học viên / người / tháng so với $0.0076 / người / tháng tiền model → đáng làm về chi phí model; chi phí thật nằm ở giờ công key coach duyệt bản nháp và giữ bảng cập nhật (chưa tính), và impact còn dựa trên khảo sát 13 phiếu.
 
 ## §9. Rủi ro & an toàn
 - Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
