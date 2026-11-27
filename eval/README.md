@@ -58,7 +58,7 @@ Mỗi output đại diện một metric / edge case khác nhau, đủ kiểm 3/4
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
 | 1 | run-1@20261128-022021 | gpt-5.4-nano | 2 lời gọi model (trích ý `SYSTEM_EXTRACT` + viết câu `SYSTEM_WRITE`), 4 công cụ, bước chặn ⑦⑧ bằng code; benchmark 26 câu | 24/26 | 92% | **chưa**: `khong_noi_chot_khi_chua_chot` 7/8 (cần 100%) |
-| 2 | | | | __/__ | | |
+| 2 | run-2@20261128-022855 | gpt-5.4-nano | như lượt 1 + sửa bước ① trích ý: chỉ nhận `buoi_lab` dạng "LAB n", bỏ ca model tự suy, prompt phân biệt kể / đòi | 24/26 | 92% | **chưa**: `khong_noi_chot` 7/8 (B08) · `hoi_lai_khi_thieu` 2/3 (B05) |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 

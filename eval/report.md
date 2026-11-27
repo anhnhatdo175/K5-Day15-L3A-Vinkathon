@@ -9,7 +9,7 @@
 | Lượt | Run ID | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" |
 |---|---|---|---|---|---|---|---|
 | 1 | run-1@20261128-022021 | 24/26 *(Claude Code chấm theo vế metric, `eval/cham-run-1-de-xuat.csv`; B19, B23 chờ nhóm xem lại)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (cần 100%) · `phong_dung_bang` 9/10 = 90% (đạt, sát ngưỡng) · `hoi_lai_khi_thieu` 3/3 · `tu_choi_dung` 6/6 |
-| 2 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
+| 2 | run-2@20261128-022855 | 24/26 *(Claude Code chấm cùng cách lượt 1, `eval/cham-run-2-de-xuat.csv`)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (B08) · `hoi_lai_khi_thieu` 2/3 = 67% (B05, cần ≥80%) · `phong_dung_bang` 10/10 · `tu_choi_dung` 6/6 |
 
 Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`.
 
@@ -31,12 +31,13 @@ Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-
 
 ## 3. Một lần cải tiến
 
-- Nhắm vào nhóm lỗi: __ — vì sao là nhóm **đau nhất với người dùng**: __
-- Đã sửa gì (có thể vài thay đổi cùng nhắm nhóm lỗi đó): __
-- Kết quả: nhóm lỗi đó __/__ → __/__ · tổng __% → __%
-- Câu nào **tệ đi** sau khi sửa: __
+- Nhắm vào nhóm lỗi: **model trích ý sai** (điền rác vào trường, tự suy thông tin người dùng không nói, nhầm "kể" với "đòi") — vì sao đau nhất: làm trợ lý nói "không có buổi lab" khi có buổi (B08), mất một buổi chờ xác nhận (B19, B23), hoặc từ chối người đang cầm phòng cũ (B17): đúng kiểu đi nhầm phòng / bỏ buổi trong pain.
+- Đã sửa gì (`codebase/agent.py`, chỉ bước ①): (1) chỉ nhận `buoi_lab` đúng dạng "LAB n"; (2) ca chỉ lấy khi người dùng tự nói "sáng" / "chiều", bỏ ca model tự suy; (3) prompt `SYSTEM_EXTRACT` ghi rõ người dùng kể phòng đã đổi rồi hỏi phòng đúng là `hoi_phong`, chỉ yêu cầu trợ lý làm gì mới là `doi_phong`.
+- Kết quả: 4 câu của nhóm lỗi ở lượt 1 (B08, B17, B19, B23): 1 trượt + 2 thiếu buổi + 1 trượt → B17, B19, B23 đúng và đủ; **B08 vẫn trượt** vì nguyên nhân khác cùng nhóm: model tính "mai" = 02/05 (hôm nay) và ghi đè ngày code đọc được. Tổng 92% → 92%.
+- Câu nào **tệ đi** sau khi sửa: **B05** ("Mai lab phòng nào?"): lượt 2 model tự đoán lớp = L3A nên trợ lý chỉ hỏi nhóm (lượt 1 hỏi đủ lớp + nhóm). Không do thay đổi của lượt 2 gây ra trực tiếp: cùng một lỗi "model đoán", lượt này rơi vào trường `lop` (model không ổn định giữa hai lượt).
 
 ## 4. Còn lại
 
-- Lỗi chưa sửa + nguy hiểm thế nào: __
-- Nếu có thêm 1 tuần: __
+- Lỗi chưa sửa + nguy hiểm thế nào: model vẫn đoán / tính lại thông tin mà code đọc chắc chắn được (lớp ở B05, ngày "mai" ở B08). Nguy hiểm: trợ lý trả lời "không có buổi lab" khi có buổi chờ xác nhận → học viên có thể không đi học. Hướng sửa (chưa làm): lớp / nhóm chỉ nhận khi có trong chữ người dùng gõ; ngày tương đối ("mai", "hôm nay") do code tính, ưu tiên hơn model.
+- Dữ liệu: bảng lịch là bộ giả lập BTC, danh sách nhóm tự dựng; chưa thử với bảng thật.
+- Nếu có thêm 1 tuần: thay danh sách nhóm tự dựng bằng danh sách chính thức; chạy thêm câu thử theo đúng cách học viên gõ (lấy từ khảo sát / Discord); cho key coach thử duyệt bản nháp `draft_notice`.
