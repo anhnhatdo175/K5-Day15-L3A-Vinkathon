@@ -125,8 +125,11 @@ def understand(text):
     facts = {
         "y_dinh": m.get("y_dinh") if m.get("y_dinh") in
         ("hoi_phong", "doi_phong", "du_lieu_ca_nhan", "ngoai_pham_vi", "lenh_gia") else "hoi_phong",
-        "lop": r.get("lop") or (m.get("lop") if m.get("lop") in ("L3A", "L3B") else None),
-        "nhom": r.get("nhom") or (m.get("nhom") if isinstance(m.get("nhom"), int) else None),
+        # Lượt 3: lớp / nhóm của model chỉ nhận khi có trong chữ người dùng gõ (lượt 2 model tự đoán L3A ở B05).
+        "lop": r.get("lop") or (m.get("lop") if m.get("lop") in ("L3A", "L3B")
+                                and m["lop"][-1].lower() in re.findall(r"l3\s*([ab])", text.lower()) else None),
+        "nhom": r.get("nhom") or (m.get("nhom") if isinstance(m.get("nhom"), int)
+                                  and re.search(r"\b%d\b" % m["nhom"], text) else None),
         "ten": (m.get("ten") if isinstance(m.get("ten"), str) and m.get("ten").strip() else None) or r.get("ten"),
         # Lượt 2: chỉ nhận buoi_lab đúng dạng "LAB n" (lượt 1 model điền "mai" → lọc ra rỗng, B08).
         "buoi_lab": r.get("buoi_lab") or norm_lab(m.get("buoi_lab")),
@@ -134,10 +137,12 @@ def understand(text):
         "ca": r.get("ca"),
         "phong_nhac": r.get("phong_nhac", []),
     }
-    ngay = r.get("ngay")
+    # Lượt 3: ngày ghi rõ (dd/mm) > ngày tương đối code tính ("mai", "hôm nay") > ngày model suy (vd "thứ Năm").
+    # Lượt 2 model tính "mai" = hôm nay và ghi đè ngày code đọc được (B08).
+    ngay = r.get("ngay") or r.get("ngay_tuong_doi")
     if not ngay and isinstance(m.get("ngay"), str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", m["ngay"]):
         ngay = m["ngay"]
-    facts["ngay"] = ngay or r.get("ngay_tuong_doi")
+    facts["ngay"] = ngay
     facts["nhac_nguon_khac"] = bool(re.search(r"email|zalo|discord|tin nhắn|nhắn", text, re.I))
     # Chặn bằng code: câu tấn công / ngoài thẩm quyền luôn bị từ chối, kể cả khi model đọc nhầm.
     if ATTACK.search(text):
