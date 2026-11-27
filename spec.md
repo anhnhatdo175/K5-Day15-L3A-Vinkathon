@@ -87,7 +87,20 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 - Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
 
 ## §10. Phân công & changelog
-- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
+- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): mỗi người **giữ một mảng** và phải giải thích được phần có tên mình; **cặp đổi sau CP2** để ai cũng kể lại được cả câu chuyện; ai cũng tự chạy `run.py eval` và `run.py simulate` ít nhất một lần.
+  - **Đỗ Nhật Anh** (đội trưởng): bản chạy thử `codebase/` (luồng, công cụ, nối model, chặn rủi ro) · §9–§10 · nộp checkpoint
+  - **Phạm Cát Tân:** bằng chứng pain và impact — `evidence/` · §0–§2 · slide
+  - **Vũ Đức Anh:** bộ câu thử và đánh giá — `eval/` · `data/DATA_CARD.md` · §5–§7
+  - **Trần Thái Hưng:** thiết kế và chi phí — §3–§4 · §8 · data chạy thử trong `data/` · `cost/`
+
+  | Chặng · mốc | Cả nhóm | Cặp 1 | Cặp 2 |
+  |---|---|---|---|
+  | **1 · đến 17:00 T6 (CP1)** | Mỗi người phỏng vấn ≥1 học viên ngoài nhóm về lần gần nhất kẹt khi xem video pre-class → `evidence/interviews/P*.md` · 16:45 đi lại câu chuyện | **Nhật Anh:** push repo, nộp CP1, hỏi lab coach nghĩa của `missing_context`, `by = link` · **Thái Hưng:** xem 2–3 video Day01–02, tự viết lại thành 10–20 đoạn ngắn có mốc giây (không chép nguyên lời giảng) | **Đức Anh:** đọc `eval/README.md`, `metric_spec.yaml`; hỏi tay 10 câu bằng ChatGPT/Claude với prompt nháp, ghi output để viết tiêu chí · **Cát Tân:** chuẩn bị khung tổng hợp phỏng vấn |
+  | **3 · 17:00–19:30 T6 (CP2)** | 17:00–17:20 tổng hợp phỏng vấn (Cát Tân dẫn) → chốt lát cắt + sơ đồ · 19:00 đổi chéo review · **19:15 chốt §7 chuẩn "đạt"**, commit trước 19:30 · Nhật Anh nộp CP2 | **Nhật Anh + Thái Hưng:** sơ đồ §4 + data chạy thử (Thái Hưng) · `tools.py` `search_lesson` + `agent.py` đi hết luồng với AI giả (Nhật Anh) · trước khi rời lớp: lấy API key, `run.py eval --try` | **Đức Anh + Cát Tân:** §5 ≥6 kịch bản + 2 tấn công · `benchmark.csv` ≥10 câu · `metric_spec.yaml` ≥3 metric · `DATA_CARD.md` (Đức Anh) · canvas + dòng "đã đổi gì" · §1 (Cát Tân) · hai người chấm độc lập cùng 5 output, ghi `eval/README.md` |
+  | **4 · tối T6 → 10:00 T7 (CP3)** | Sáng T7 30 phút: chốt bằng chứng + impact · chạy `run.py eval` lượt 1 cùng nhau, chấm `pass`, `score` · 09:45 đi lại câu chuyện · Nhật Anh quay video 30 giây, nộp CP3 | **Nhật Anh + Đức Anh:** nối model thật `ai.py` + code chặn mốc giây không có trong kết quả công cụ (Nhật Anh) · mở rộng 20–30 câu thử: ≥5 `kho`, ≥2 `tu_choi` gồm 2 tấn công, ≥1/3 từ người dùng / data thật (Đức Anh) | **Cát Tân + Thái Hưng:** `evidence/summary.md`, §0 hiện trạng trợ giảng, bảng impact §2 ≥3 hướng (Cát Tân) · §3 giải pháp tương tự, `cost/personas.yaml`, `run.py simulate --try` 10 phiên (Thái Hưng) |
+  | **5 · 10:00–13:00 T7** | 30 phút đọc chung các câu trượt → gom nhóm lỗi → chọn 1 cải tiến · *(bonus)* mỗi người cho 1 người ngoài nhóm dùng thử → `validation/log.md` | **Nhật Anh + Đức Anh:** cải tiến → `run.py eval` lượt 2 (Nhật Anh) · `eval/report.md` + `eval/README.md` (Đức Anh) | **Cát Tân + Thái Hưng:** `run.py simulate` ≥50 phiên với tỉ lệ đạt lượt 2 · `cost/cost-estimate.md` 3 kịch bản × 2 model, giá có link + ngày xem (Thái Hưng) · cập nhật số §1–§2, bắt đầu slide (Cát Tân) |
+  | **6 · 13:00–14:30 T7 (CP4)** | Go / iterate / stop · tập demo, mỗi người nói một phần: Cát Tân (pain + impact) · Thái Hưng (giải pháp + chi phí) · Đức Anh (đánh giá) · Nhật Anh (demo live) · 14:15 đi lại câu chuyện · Nhật Anh nộp CP4 | **Nhật Anh + Đức Anh:** video demo dự phòng · checklist 5.2 (không có key, không có dữ liệu cá nhân) · §9 | **Cát Tân + Thái Hưng:** slide 8 trang (`slides/outline.md` → PDF) · §8 |
+  | **14:30 → 23:59 T7** | Mỗi người một file `reflection/<ten-khong-dau>.md` · sửa theo góp ý | **Nhật Anh:** ghi changelog §10 cho mọi thay đổi sau 14:30 | |
 - Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
