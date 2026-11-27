@@ -11,8 +11,8 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Đỗ Nhật Anh | 2A202603701 | Đội trưởng | Bản chạy thử codebase/ (luồng, công cụ, nối model, chặn rủi ro), spec §9–§10, nộp checkpoint |
-| 2 | Phạm Cát Tân | 2A202603678 | Thành viên | Bằng chứng pain và impact: evidence/, spec §0–§2, slide |
+| 1 | Đỗ Nhật Anh | 2A202603701 | Đội trưởng | Bằng chứng pain và impact: evidence/, spec §0–§2 và §10, slide, nộp checkpoint |
+| 2 | Phạm Cát Tân | 2A202603678 | Thành viên | Bản chạy thử codebase/ (luồng, công cụ, nối model, chặn rủi ro), spec §9 |
 | 3 | Vũ Đức Anh | 2A202603714 | Thành viên | Bộ câu thử và đánh giá: eval/, data/DATA_CARD.md, spec §5–§7 |
 | 4 | Trần Thái Hưng | 2A202603557 | Thành viên | Thiết kế và chi phí: spec §3–§4 và §8, data chạy thử, cost/ |
 
