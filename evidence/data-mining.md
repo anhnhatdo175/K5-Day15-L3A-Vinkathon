@@ -3,6 +3,8 @@
 > Điền ở guide bước 1.2. Ôn lại: ngày 2, ngày 6 · lab ngày 2, lab ngày 6.
 > Repo chỉ chứa số đã tổng hợp và vài dòng ví dụ — không chép lại nguyên file data.
 
+> **Hướng nhóm làm: A5** (phòng / giờ buổi lab, xem `spec.md`). `data/preclass/` không ghi việc học viên tìm phòng lab, nên các số dưới đây **không phải bằng chứng pain của A5**: chỉ dùng cho bảng so sánh hướng ở `spec.md` §2 (M10 → A4, M11 → A6). Bằng chứng A5 lấy từ khảo sát và phỏng vấn (`evidence/hypothesis.md`). `data/training-ops/` là giả lập, không đào làm bằng chứng.
+
 **Chạy lại:** chép `data/preclass/` của repo đề vào `data-btc/preclass/` (đã có trong `.gitignore`, không commit), rồi
 `python evidence/count_preclass.py`: chỉ dùng thư viện chuẩn, ra đúng các số ở mục 3.
 
@@ -26,6 +28,7 @@
 | M9 | học viên chạm Day01 (theo `lesson_id`) có chạm Day08 | học viên chạm Day01 |
 | M10 | cặp (học viên, `intervention_id`) mà học viên đó có ≥1 dòng `chat.csv` trả lời đúng `intervention_id` | cặp (học viên, `intervention_id`) từ `agent_message_shown` có `intervention_id` |
 | M11 | `lab_completed` có `skipped = true` | mọi `lab_completed` |
+| M12 | câu trả lời của trợ giảng có ≥1 mốc mà chính học viên đó có ≥1 lần tua `by = link` trong 10 phút sau, tới đúng giây của một mốc trong câu đó (±2 giây) | câu trả lời của trợ giảng có ≥1 mốc (như M5) |
 
 ## 2. Đọc trước, đếm sau
 
@@ -50,6 +53,7 @@
 | M9 | Học viên Day01 còn chạm Day08 | 107 / 417 | 26% | Dùng cho bảng so sánh hướng (`spec.md` §2) |
 | M10 | Lượt bạn học AI xen vào được học viên trả lời | 89 / 7.992 | 1,1% | 273 học viên thấy lời xen vào, 31 học viên từng trả lời. Hướng A4 |
 | M11 | Lần xong mini lab là bấm "bỏ qua" | 102 / 453 | 23% | Hướng A6 |
+| M12 | Câu trả lời của trợ giảng có mốc được học viên bấm | 12 / 327 | 4% | 17/40 lần tua `link` rơi đúng giây một mốc → `link` gần như chắc là bấm mốc (xem mục 5) |
 
 ## 4. Ví dụ cụ thể (mã đã ẩn danh: không đoán ai là ai)
 
@@ -65,7 +69,7 @@ Chọn theo thứ tự mã đầu tiên thoả điều kiện (không chọn the
 
 - Data cho biết người ta **làm gì**, không cho biết **vì sao**: xem dở có thể do kẹt nội dung, cũng có thể do hết giờ; tua lui có thể do không hiểu, cũng có thể do xem lại cho chắc.
 - **Không có chữ học viên viết và chữ AI trả lời** (chỉ có độ dài) → không biết câu hỏi hỏi gì, không chấm được câu trả lời của trợ giảng đúng hay sai, mốc trích dẫn có đúng đoạn không.
-- `missing_context` và `by = link` **không có định nghĩa** trong `column_dictionary.csv` / `event_types.csv`. Nhóm đoán: `missing_context` = trợ giảng thiếu căn cứ trong bài để trả lời; `link` = tua do bấm một đường dẫn (có thể là mốc giây trong câu trả lời). **Chưa kiểm, cần hỏi BTC** trước khi dùng hai số này làm bằng chứng chính.
+- `missing_context` và `by = link` **không có định nghĩa** trong `column_dictionary.csv` / `event_types.csv`. Nhóm đoán: `missing_context` = trợ giảng thiếu căn cứ trong bài để trả lời; `link` = tua do bấm một đường dẫn (có thể là mốc giây trong câu trả lời). **Chưa kiểm, cần hỏi BTC** trước khi dùng hai số này làm bằng chứng chính. Riêng `link`: 17/40 lần tua `link` rơi đúng giây của một mốc trong câu trả lời trợ giảng ngay trước đó (M12), nên nhiều khả năng là bấm mốc, nhưng chưa có xác nhận từ BTC.
 - `moc_trich_dan` chỉ được ghi từ 13/11 → không biết trước đó trợ giảng có trích mốc không.
 - `video_ended` có thể bật cả khi học viên tua tới cuối → M1 có thể **cao hơn** số người thật sự xem hết.
 - Mẫu chỉ gồm học viên có dùng trang pre-class (436/721 tài khoản); người không dùng không có trong data. Day10–Day13 ít người một phần vì bài mở muộn.

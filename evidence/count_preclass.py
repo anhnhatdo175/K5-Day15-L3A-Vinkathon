@@ -61,6 +61,7 @@ rewind_hv = set()
 rewinds = defaultdict(int)          # (hv, video) -> số lần tua lui
 opens = defaultdict(int)            # (hv, video) -> số lần mở
 link_seeks = []                     # (hv, giờ VN) các lần tua có by = link
+link_targets = []                   # (hv, giờ VN, giây tua tới) các lần tua có by = link, dùng cho M12
 ta_replies = []                     # (chat id, payload, giờ VN) trả lời của trợ giảng
 reply_times = defaultdict(list)     # hv -> giờ VN các lần trợ giảng trả lời
 shown = set()                       # cặp (hv, intervention_id) bạn học AI xen vào
@@ -94,6 +95,7 @@ for r in rows("events.csv"):
             rewinds[(hv, r["video"])] += 1
         if d.get("by") == "link":
             link_seeks.append((hv, vn_time(r["occurred_at"])))
+            link_targets.append((hv, vn_time(r["occurred_at"]), d.get("to")))
     elif typ == "agent_replied" and r["ref_id"] in ta_ids:
         t = vn_time(r["occurred_at"])
         ta_replies.append((r["ref_id"], payload(r), t))
@@ -127,6 +129,33 @@ def link_after_reply(hv, t, minutes=10):
 link_hv = {hv for hv, _ in link_seeks}
 link_near = [x for x in link_seeks if link_after_reply(*x)]
 
+
+def cited_seconds(d):
+    """Giây của các mốc trong moc_trich_dan: "Day06/d06-r1-v01.txt@194" hoặc "@16" → 194.0, 16.0."""
+    out = []
+    for m in d.get("moc_trich_dan") or []:
+        try:
+            out.append(float(str(m).rpartition("@")[2]))
+        except ValueError:
+            pass
+    return out
+
+
+# M12: câu trả lời có mốc được BẤM = chính học viên đó tua by = link trong 10 phút sau câu trả lời,
+# tới đúng giây của một mốc trong câu đó (±2 giây).
+clicked = set()
+click_seeks = 0
+for hv, ts, to in link_targets:
+    if to is None:
+        continue
+    hit = False
+    for cid, d, tr in cited:
+        if chat[cid]["hv"] == hv and timedelta(0) <= ts - tr <= timedelta(minutes=10) \
+                and any(abs(to - s) <= 2 for s in cited_seconds(d)):
+            clicked.add(cid)
+            hit = True
+    click_seeks += hit
+
 print("Data:", D)
 print("\n== Hướng A1 · trợ giảng dưới video ==")
 print("M1 cặp (học viên, video) đã mở mà xem tới cuối (video_ended):", pct(len(opened & ended), len(opened)))
@@ -145,6 +174,8 @@ print("M5 câu trả lời của trợ giảng có >=1 mốc trích dẫn / câu
       "· khoá này có từ", min(t for _, _, t in with_key).strftime("%d/%m/%Y"))
 print("M6 lần tua bằng 'link' (by = link):", len(link_seeks), "lần ·", len(link_hv), "học viên ·",
       len(link_near), "lần xảy ra trong 10 phút sau một câu trả lời của trợ giảng")
+print("M12 câu trả lời của trợ giảng có mốc mà học viên bấm mốc (tua link tới đúng giây một mốc ±2s, trong 10 phút sau):",
+      pct(len(clicked), len(cited)), "·", click_seeks, "/", len(link_targets), "lần tua link rơi đúng giây một mốc")
 print("M7 câu trả lời của trợ giảng có missing_context = true / câu có ghi khoá:", pct(len(mc_true), len(mc_known)))
 print("M8 câu hỏi gửi trợ giảng dài <= 10 ký tự / câu hỏi gửi trợ giảng:", pct(len(short_q), len(ta_ids)))
 
