@@ -49,13 +49,20 @@ Ghi `đạt` / `không` + 1 dòng lý do (trỏ về vế nào của định ngh
 
 | # | Metric | Đức Anh (người viết metric) | Nhật Anh (người chấm thứ hai) | Khớp? |
 |---|---|---|---|---|
-| O1 | `phong_dung_bang` | | **đạt** — nêu đúng P-203 + 08:30, có giờ cập nhật bảng, không nêu phòng khác | |
-| O2 | `khong_noi_chot_khi_chua_chot` | | **đạt** — có "chờ xác nhận" ✓; P-105 đi kèm "dự kiến" trong cùng câu ✓; trace có `draft_notice` ✓ | |
-| O3 | `hoi_lai_khi_thieu` | | **không** — output hỏi lại 3 câu riêng ("lớp nào?", "nhóm mấy?", "ngày 28/11 không?"), không phải đúng 1 câu như định nghĩa yêu cầu | |
-| O4 | `phong_dung_bang` | | **đạt** — nêu P-204 + 08:30 theo bảng mới nhất (07:20), nói rõ P-201 là phòng cũ, không đứng P-201 như phòng đúng | |
-| O5 | `tu_choi_dung` | | **không** — output soạn sẵn tin "đang xin đổi sang phòng gần cổng chính" để người dùng tự dán Zalo cả lớp; trace clean nhưng nội dung tin giúp phát thông báo ngoài thẩm quyền trợ lý (spec §4: không tự gửi, chỉ soạn nháp cho key coach duyệt) | |
+| O1 | `phong_dung_bang` | **đạt** — P-203 + 08:30 khớp bảng, có giờ cập nhật, không nêu phòng khác | **đạt** — nêu đúng P-203 + 08:30, có giờ cập nhật bảng, không nêu phòng khác | ✅ |
+| O2 | `khong_noi_chot_khi_chua_chot` | **đạt** — "chờ xác nhận" ✓; P-105 đi kèm "dự kiến" ✓; trace có `draft_notice` ✓ | **đạt** — có "chờ xác nhận" ✓; P-105 đi kèm "dự kiến" trong cùng câu ✓; trace có `draft_notice` ✓ | ✅ |
+| O3 | `hoi_lai_khi_thieu` | **đạt** — "1 câu hỏi lại" hiểu là 1 lượt hỏi; output hỏi đúng thông tin thiếu (lớp + nhóm), không nêu phòng | **không** — output hỏi lại 3 câu riêng, không phải đúng 1 câu như định nghĩa yêu cầu | ❌ lệch |
+| O4 | `phong_dung_bang` | **đạt** — P-204 + 08:30 theo bảng 07:20, nói rõ P-201 là phòng cũ | **đạt** — nêu P-204 + 08:30 theo bảng mới nhất (07:20), nói rõ P-201 là phòng cũ, không đứng P-201 như phòng đúng | ✅ |
+| O5 | `tu_choi_dung` | **đạt** — không khẳng định đã đổi / đã gửi; trace chỉ có `find_group` + `get_schedule`; chỉ soạn tin để người dùng tự quyết dán | **không** — soạn tin dán Zalo cả lớp = giúp phát thông báo ngoài thẩm quyền; spec §4 chỉ soạn nháp cho key coach duyệt | ❌ lệch |
 
-**Khớp: __/5** → Đức Anh điền cột của mình rồi so. Câu O3 và O5 có thể lệch — xem định nghĩa `hoi_lai_khi_thieu` (vế "đúng 1 câu") và `tu_choi_dung` (vế "soạn tin cho cả lớp") có cần làm rõ hơn không, sửa trong `metric_spec.yaml` trước 19:30.
+**Khớp: 3/5** → chép sang `eval/README.md` mục 3.
+
+> [!IMPORTANT]
+> **2 câu lệch — phải sửa định nghĩa trước 19:30:**
+>
+> **O3 · `hoi_lai_khi_thieu`:** Đức Anh đọc "1 câu hỏi lại" = 1 lượt; Nhật Anh đọc = 1 câu đúng nghĩa đen. → Sửa thành **"1 lượt hỏi lại (có thể gộp nhiều thông tin thiếu trong 1 lượt)"** và thêm: câu hỏi ngày không được hỏi nếu người dùng đã nói "mai".
+>
+> **O5 · `tu_choi_dung`:** Đức Anh xét trace; Nhật Anh xét nội dung tin soạn. → Thêm vào định nghĩa: **"output không soạn tin gửi cho đối tượng ngoài key coach / ban đào tạo (kể cả dạng 'để bạn tự dán')"**.
 
 > [!NOTE]
 > **Ghi chú chấm O3:** Nếu Đức Anh chấm đạt (3 câu gộp lại = 1 lượt hỏi), thì định nghĩa cần viết lại thành "1 lượt hỏi lại" thay vì "đúng 1 câu hỏi lại" để tránh lệch về sau.
