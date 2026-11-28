@@ -22,6 +22,7 @@ MAX_CHARS = 1000  # câu hỏi dài hơn thì từ chối, không gọi model
 sys.path.insert(0, HERE)
 import agent  # noqa: E402
 import ai  # noqa: E402
+import tools  # noqa: E402
 import tracing  # noqa: E402
 
 # tracing giữ trạng thái chung cho một lượt hỏi → mỗi lúc chỉ chạy một lượt.
@@ -39,11 +40,52 @@ def _draft_and_keep(*args, **kwargs):
 
 agent.draft_notice = _draft_and_keep
 
+# Giữ kết quả ĐẦY ĐỦ của get_schedule / check_conflicts (trace chỉ giữ bản rút gọn) để cột "Căn cứ" hiển thị.
+# Vẫn gọi đúng công cụ đã đăng ký @tool nên trace không đổi.
+_sessions = []
+_get_schedule = agent.get_schedule
+_check_conflicts = agent.check_conflicts
+
+
+def _schedule_and_keep(*args, **kwargs):
+    res = _get_schedule(*args, **kwargs)
+    for s in res:
+        if not any(x["o"] == s["o"] for x in _sessions):
+            _sessions.append(dict(s))
+    return res
+
+
+def _conflicts_and_keep(session, *args, **kwargs):
+    res = _check_conflicts(session, *args, **kwargs)
+    for s in _sessions:
+        if s["o"] == session.get("o"):
+            s["kiem_tra"] = res
+    return res
+
+
+agent.get_schedule = _schedule_and_keep
+agent.check_conflicts = _conflicts_and_keep
+
+
+def _upcoming(limit=10):
+    """Các buổi LAB của L3 từ "hôm nay" trở đi trong bảng chính thức — cột trái hiển thị làm bối cảnh."""
+    today = agent.HOM_NAY.isoformat()
+    rows = sorted((r for r in tools.OFFICIAL if r["ngay"] >= today), key=lambda r: (r["ngay"], r["gio_bat_dau"]))
+    return [{"ngay": r["ngay"], "thu": agent.fmt_day(r["ngay"]), "ca": r["ca"], "lop": r["lop"],
+             "buoi_lab": r["buoi_lab"], "gio": r["gio_bat_dau"], "trang_thai": r["trang_thai"]} for r in rows[:limit]]
+
 
 def info():
+    days = [agent.HOM_NAY + agent.dt.timedelta(days=i) for i in range(1, 6)]
     return {"model": ai.MODEL_NAME if ai.MODEL_PROVIDER != "fake" else "fake",
             "provider": ai.MODEL_PROVIDER,
             "hom_nay": "%s %s" % (agent.THU[agent.HOM_NAY.weekday()], agent.HOM_NAY.strftime("%d/%m/%Y")),
+            "hom_nay_iso": agent.HOM_NAY.isoformat(),
+            "ngay_toi": [{"iso": d.isoformat(), "nhan": agent.fmt_day(d.isoformat()), "mai": i == 0}
+                         for i, d in enumerate(days)],
+            "so_nhom": max(int(g["nhom"]) for g in tools.GROUPS),
+            "lich_toi": _upcoming(),
+            "bang_cap_nhat": agent.fmt_update(tools.OFFICIAL[0]["bang_cap_nhat"]) if tools.OFFICIAL else "",
             "max_chars": MAX_CHARS}
 
 
@@ -71,6 +113,7 @@ def ask(text):
         return 400, {"error": "Câu hỏi dài quá %d ký tự." % MAX_CHARS}
     with _LOCK:
         del _drafts[:]
+        del _sessions[:]
         tracing.begin("web")
         t0 = time.perf_counter()
         try:
@@ -82,13 +125,15 @@ def ask(text):
             result, failure = None, (502, "%s: %s" % (type(e).__name__, str(e)[:200]))
         summary, events = tracing.end()
         drafts = list(_drafts)
+        sessions = [dict(s, thu=agent.fmt_day(s["ngay"]), cap_nhat=agent.fmt_update(s["bang_cap_nhat"]))
+                    for s in _sessions]
     if failure:
         return failure[0], {"error": failure[1], "steps": _steps(events)}
     output = result.get("output", "") if isinstance(result, dict) else str(result)
     summary["latency_s"] = round(time.perf_counter() - t0, 2)
     return 200, {"output": output,
                  "hoi_lai": output.rstrip().endswith("?"),  # câu do code soạn để hỏi lại (câu của model không có "?")
-                 "drafts": drafts, "steps": _steps(events), "meta": summary}
+                 "drafts": drafts, "sessions": sessions, "steps": _steps(events), "meta": summary}
 
 
 class Handler(BaseHTTPRequestHandler):
