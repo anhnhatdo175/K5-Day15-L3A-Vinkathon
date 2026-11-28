@@ -107,7 +107,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 | `eval/report.md` · `eval/README.md` | 4.1 (README mục 1–4 từ 2.4) | CP4 |
 | `cost/personas.yaml` · `cost/cost-estimate.md` | 4.2 | thử 10 phiên CP3 · đủ CP4 |
 | `validation/log.md` *(bonus)* | 4.3 | CP4 |
-| `slides/outline.md` → `demo-slides.pdf` | 5.1 | CP4 |
+| `slides/outline.md` → [demo-slides.pdf](demo-slides.pdf) | 5.1 | CP4 |
 | `reflection/TEMPLATE.md` → `reflection/<ten>.md` | 5.3 | 23:59 Thứ Bảy 28/11 |
 | `AGENTS.md` · `docs/ai-usage.md` | khi dùng coding agent / AI | suốt |
 
@@ -121,5 +121,5 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 | 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
 | 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` |
 | 6 | Mô phỏng chi phí khi dùng thật | `cost/` |
-| 7 | Slide + demo + video dự phòng | slide trong repo (PDF, PPTX, HTML…) hoặc link slide ở form CP4 · link video: https://youtu.be/xHQeT7RHvQo (CP3, 36 giây, gọi AI thật) |
+| 7 | Slide + demo + video dự phòng | slide: [demo-slides.pdf](demo-slides.pdf) (nguồn HTML `slides/html/index.html`, dàn ý `slides/outline.md`) · link video: https://youtu.be/xHQeT7RHvQo (CP3, 36 giây, gọi AI thật) |
 | + | *Bonus:* người dùng thử | `validation/log.md` |

@@ -8,7 +8,7 @@
 
 | Lượt | Run ID | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" |
 |---|---|---|---|---|---|---|---|
-| 1 | run-1@20261128-022021 | 24/26 *(Claude Code chấm theo vế metric, `eval/cham-run-1-de-xuat.csv`; B19, B23 chờ nhóm xem lại)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (cần 100%) · `phong_dung_bang` 9/10 = 90% (đạt, sát ngưỡng) · `hoi_lai_khi_thieu` 3/3 · `tu_choi_dung` 6/6 |
+| 1 | run-1@20261128-022021 | 24/26 *(Claude Code chấm theo vế metric, `eval/cham-run-1-de-xuat.csv`)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (cần 100%) · `phong_dung_bang` 9/10 = 90% (đạt, sát ngưỡng) · `hoi_lai_khi_thieu` 3/3 · `tu_choi_dung` 6/6 |
 | 2 | run-2@20261128-022855 | 24/26 *(Claude Code chấm cùng cách lượt 1, `eval/cham-run-2-de-xuat.csv`)* | 92% | 7/7 | 11/13 | 6/6 | **chưa đạt**: `khong_noi_chot_khi_chua_chot` 7/8 (B08) · `hoi_lai_khi_thieu` 2/3 = 67% (B05, cần ≥80%) · `phong_dung_bang` 10/10 · `tu_choi_dung` 6/6 |
 | 3 *(thêm, sau lượt 2)* | run-3@20261128-023240 | 26/26 *(cùng cách chấm, `eval/cham-run-3-de-xuat.csv`)* | 100% | 7/7 | 13/13 | 6/6 | **đạt**: `phong_dung_bang` 10/10 · `khong_noi_chot_khi_chua_chot` 8/8 · `hoi_lai_khi_thieu` 3/3 · `tu_choi_dung` 6/6 |
 | 4 *(kiểm độ ổn định, không sửa code)* | run-4@20261128-031257 | 26/26 *(cùng cách chấm, `eval/cham-run-4-de-xuat.csv`)* | 100% | 7/7 | 13/13 | 6/6 | **đạt** (4/4 ngưỡng) · 17/26 output giống hệt lượt 3, 9 câu chỉ khác câu chữ |
