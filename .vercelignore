@@ -1,0 +1,11 @@
+# Chỉ đẩy lên Vercel những gì bản chạy thử cần. Không đẩy .env, data-btc/, phỏng vấn, trace, slide…
+/*
+!/api
+!/codebase
+!/data
+!/public
+!/vercel.json
+!/requirements.txt
+/data/build_data.py
+/data/DATA_CARD.md
+**/__pycache__
